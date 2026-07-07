@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구깃 (Googit) · 경쟁 분석</title>
+<style>
+  :root{
+    --paper:#F5F1E9; --ink:#3A352F; --sub:#7d756a; --line:#e2dccf;
+    --googit:#F5DEA8; --notes:#F4D2D4; --keep:#CCDFC7; --things:#D2E0E4; --todoist:#E6DCEF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:-apple-system,"Apple SD Gothic Neo","Segoe UI",Helvetica,sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.6;padding:44px 22px 80px;
+    background-image:radial-gradient(circle, rgba(90,75,55,.045) 1px, transparent 1.4px);
+    background-size:18px 18px;word-break:keep-all;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  header{margin-bottom:30px;}
+  .badge{display:inline-block;background:var(--googit);padding:4px 12px;border-radius:20px;
+    font-size:12px;font-weight:700;letter-spacing:.3px;transform:rotate(-1.5deg);}
+  h1{font-size:33px;font-weight:800;margin:14px 0 6px;letter-spacing:-.5px;}
+  .tag{color:var(--sub);font-size:15px;max-width:760px;}
+  .pos{margin:24px 0 30px;padding:16px 20px;background:#fffdf8;border:1px solid var(--line);
+    border-radius:14px;font-size:14.5px;}
+  .pos b{color:var(--ink);}
+
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fffdf8;}
+  table{border-collapse:collapse;width:100%;min-width:940px;font-size:13.5px;}
+  th,td{text-align:left;padding:13px 15px;vertical-align:top;border-bottom:1px solid var(--line);}
+  thead th{position:sticky;top:0;background:#fffdf8;font-size:13px;}
+  th.dim{width:120px;color:var(--sub);font-weight:700;font-size:12px;letter-spacing:.4px;}
+  tbody th{color:var(--sub);font-weight:700;font-size:12px;letter-spacing:.3px;
+    white-space:nowrap;background:#faf7f0;}
+  .app{font-size:15px;font-weight:800;}
+  .app small{display:block;font-weight:600;color:var(--sub);font-size:11px;margin-top:2px;}
+  col.gcol{background:rgba(245,222,168,.28);}
+  .gdot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle;}
+  .yes{color:#3f7d3a;font-weight:700;} .no{color:#b85b5b;font-weight:700;} .mid{color:#b58a3a;font-weight:700;}
+  td.chk{font-size:20px;font-weight:900;text-align:center;}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px;}
+  .card{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h3{font-size:16px;margin-bottom:10px;}
+  .card ul{list-style:none;}
+  .card li{padding:5px 0 5px 20px;position:relative;font-size:13.5px;}
+  .card li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:7px;border-radius:2px;background:var(--googit);}
+  .card.win li::before{background:#7fae6a;}
+  .card.risk li::before{background:#d98c93;}
+  footer{margin-top:36px;color:var(--sub);font-size:12px;text-align:center;}
+  @media(max-width:720px){.cards{grid-template-columns:1fr;}h1{font-size:25px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">📝 구깃 · Googit — 경쟁 분석</span>
+    <h1>"머릿속 비우고 구겨 버리는" 메모 앱</h1>
+    <p class="tag">잠금화면 중심의 초미니멀 포스트잇 앱. 떠오른 할 일을 40자 이내로 툭 적고, 잠금화면에서 슬쩍 보고,
+       다 하면 <b>구겨서 날려버려요</b>(꽃가루 ✨). 체크박스도, 프로젝트도, 계정도 없어요.</p>
+  </header>
+
+  <div class="pos">
+    <b>한 줄 포지셔닝:</b> 다른 앱들은 할 일을 <b>관리</b>하게 해주고, 구깃은 할 일을 <b>잊게</b> 해줘요.
+    스펙트럼에서 가장 <b>마찰 적고 · 버리는</b> 쪽 끝 — Things 3 / Todoist 같은 파워 관리 앱의 정반대,
+    그리고 Apple 메모 / Google Keep보다 더 가볍고 playful한 자리예요.
+  </div>
+
+  <div class="scroll">
+  <table>
+    <colgroup>
+      <col style="width:120px"><col class="gcol"><col><col><col><col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="dim">항목</th>
+        <th><span class="app"><span class="gdot" style="background:var(--googit)"></span>구깃 (Googit)<small>이 제품</small></span></th>
+        <th><span class="app">Apple 메모<small>아이폰 기본 메모</small></span></th>
+        <th><span class="app">Google Keep<small>스티키 노트</small></span></th>
+        <th><span class="app">Things 3<small>프리미엄 투두</small></span></th>
+        <th><span class="app">Todoist<small>태스크 매니저</small></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>쓰임새<br>(Use case)</th>
+        <td><b>할 일 한 개씩 집중</b> — 폰 잠금화면에서도 바로 확인하고 ✓로 체크. <b>간결함이 전부</b>.</td>
+        <td>범용 메모: 긴 글, 목록, 스캔, 그림, 첨부.</td>
+        <td>빠른 컬러 스티키 노트 + 알림 + 라벨.</td>
+        <td>본격 개인 할 일·프로젝트 관리(GTD).</td>
+        <td>여러 플랫폼 + 협업 태스크/프로젝트 관리.</td>
+      </tr>
+      <tr>
+        <th>타깃 유저<br>(Target)</th>
+        <td><b>잠금화면에서도 급한 메모 하나</b>를 바로 확인하고 싶은 유저. 무거운 앱은 부담스러운 사람.</td>
+        <td>모든 아이폰 사용자 — 기본 만능 앱.</td>
+        <td>구글 생태계 유저, 시각적 정리 선호자.</td>
+        <td>생산성 마니아, 직장인, GTD 신봉자.</td>
+        <td>팀, 여러 기기 쓰는 파워 유저.</td>
+      </tr>
+      <tr>
+        <th>사용 시나리오<br>(Scenario)</th>
+        <td>"우유 사기" 생각남 → 폰 켜고 40자 이내로 적고 엔터 → 잠금화면 위젯에 뜸 → 사옴 → <b>톡 눌러 구김</b> ✨.</td>
+        <td>회의 메모, 문서 스캔, 체크리스트, 사진 저장.</td>
+        <td>메모/음성/사진 저장, 색 분류, 시간·위치 알림.</td>
+        <td>프로젝트 계획, 오늘/예정 일정, 영역별 정리, 완료 체크.</td>
+        <td>자연어 입력("매월 1일 월세"), 프로젝트·라벨·우선순위, 공유.</td>
+      </tr>
+      <tr>
+        <th>주요 기능<br>(Features)</th>
+        <td>잠금화면 위젯(도넛 링 + ✓), 40자 메모, <b>톡 눌러 삭제(구김)</b>, 색=카테고리+필터, 끌어서 정렬, 종이 질감, 네온 별가루.</td>
+        <td>서식, 폴더, 체크리스트, 스캔, 그리기, 첨부, 공유 메모, 잠금.</td>
+        <td>컬러 노트, 라벨, 알림, 음성/사진, 협업, 검색.</td>
+        <td>프로젝트/영역, 오늘/예정, 마감일, 태그, 반복, 캘린더.</td>
+        <td>자연어 입력, 프로젝트/섹션, 라벨/필터, 우선순위, 반복, 연동.</td>
+      </tr>
+      <tr>
+        <th>입력 마찰</th>
+        <td><span class="yes">가장 낮음</span> — 입력칸 하나, 40자, 부가정보 0.</td>
+        <td><span class="mid">보통</span> — 문서를 엶.</td>
+        <td><span class="mid">낮음~보통</span></td>
+        <td><span class="mid">보통</span> — 정리를 유도.</td>
+        <td><span class="mid">낮음~보통</span> (자연어 도움).</td>
+      </tr>
+      <tr>
+        <th>메모 수명</th>
+        <td><b>일회성</b> — 구겨 버리는 게 전제.</td>
+        <td>영구 / 보관용.</td>
+        <td>지속·보관 가능.</td>
+        <td>완료할 때까지.</td>
+        <td>완료할 때까지.</td>
+      </tr>
+      <tr>
+        <th>수정</th>
+        <td><span class="no">수정 없음</span> — 틀리면 구기고 새로(의도된 설계).</td>
+        <td class="yes">자유 수정</td>
+        <td class="yes">자유 수정</td>
+        <td class="yes">자유 수정</td>
+        <td class="yes">자유 수정</td>
+      </tr>
+      <tr>
+        <th>잠금화면 위젯</th>
+        <td class="chk yes">✓</td>
+        <td class="chk no">–</td>
+        <td class="chk no">–</td>
+        <td class="chk yes">✓</td>
+        <td class="chk yes">✓</td>
+      </tr>
+      <tr>
+        <th>알림 기능</th>
+        <td class="chk no">–</td>
+        <td class="chk no">–</td>
+        <td class="chk yes">✓</td>
+        <td class="chk yes">✓</td>
+        <td class="chk yes">✓</td>
+      </tr>
+      <tr>
+        <th>날짜 표시</th>
+        <td class="chk no">–</td>
+        <td class="chk no">–</td>
+        <td class="chk yes">✓</td>
+        <td class="chk yes">✓</td>
+        <td class="chk yes">✓</td>
+      </tr>
+      <tr>
+        <th>동기화 / 계정</th>
+        <td><b>로컬 전용, 계정 없음</b> (프라이버시).</td>
+        <td>iCloud (Apple ID).</td>
+        <td>구글 계정.</td>
+        <td>Things Cloud.</td>
+        <td>계정 필요.</td>
+      </tr>
+      <tr>
+        <th>플랫폼</th>
+        <td>iOS 전용.</td>
+        <td>애플 생태계.</td>
+        <td>전 플랫폼.</td>
+        <td>애플 전용.</td>
+        <td>전 플랫폼.</td>
+      </tr>
+      <tr>
+        <th>가격</th>
+        <td><b>무료</b>.</td>
+        <td>무료.</td>
+        <td>무료.</td>
+        <td>유료(1회 구매, 플랫폼별).</td>
+        <td>프리미엄(유료 등급).</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="cards">
+    <div class="card win">
+      <h3>✅ 구깃이 이기는 점</h3>
+      <ul>
+        <li><b>가장 빠른 캡처</b> — 입력칸도, 설정도 없이 40자 툭.</li>
+        <li><b>잠금화면 네이티브</b> — 실제로 보는 곳에 메모가 산다.</li>
+        <li><b>프라이버시 + 무료</b> — 로컬 전용, 계정·결제 유도 없음.</li>
+        <li><b>색 = 카테고리</b> — 폴더 없이 가벼운 분류.</li>
+      </ul>
+    </div>
+    <div class="card risk">
+      <h3>⚠️ 트레이드오프 / 리스크</h3>
+      <ul>
+        <li><b>알림·날짜 없음</b> — 시간 민감한 일엔 부적합.</li>
+        <li><b>동기화 없음</b> — 한 기기 전용, 폰 잃으면 백업 없음.</li>
+        <li><b>40자 + 수정 불가</b> — 길거나 자주 바뀌는 메모엔 안 맞음.</li>
+        <li><b>발견성</b> — "메모 앱 또 깔아?"라는 허들.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>구깃 (Googit) 경쟁 분석 · 내부 제품 검토용 · 2026‑06</footer>
+</div>
+</body>
+</html>

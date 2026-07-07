@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>구깃 (Googit) · Competitor Analysis</title>
+<style>
+  :root{
+    --paper:#F5F1E9; --ink:#3A352F; --sub:#7d756a; --line:#e2dccf;
+    --googit:#F5DEA8; --notes:#F4D2D4; --keep:#CCDFC7; --things:#D2E0E4; --todoist:#E6DCEF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:-apple-system,"Apple SD Gothic Neo","Segoe UI",Helvetica,sans-serif;
+    background:var(--paper);color:var(--ink);line-height:1.55;padding:44px 22px 80px;
+    background-image:radial-gradient(circle, rgba(90,75,55,.045) 1px, transparent 1.4px);
+    background-size:18px 18px;}
+  .wrap{max-width:1180px;margin:0 auto;}
+  header{margin-bottom:30px;}
+  .badge{display:inline-block;background:var(--googit);padding:4px 12px;border-radius:20px;
+    font-size:12px;font-weight:700;letter-spacing:.3px;transform:rotate(-1.5deg);}
+  h1{font-size:34px;font-weight:800;margin:14px 0 6px;letter-spacing:-.5px;}
+  .tag{color:var(--sub);font-size:15px;max-width:720px;}
+  .pos{margin:24px 0 30px;padding:16px 20px;background:#fffdf8;border:1px solid var(--line);
+    border-radius:14px;font-size:14.5px;}
+  .pos b{color:var(--ink);}
+
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fffdf8;}
+  table{border-collapse:collapse;width:100%;min-width:920px;font-size:13.5px;}
+  th,td{text-align:left;padding:13px 15px;vertical-align:top;border-bottom:1px solid var(--line);}
+  thead th{position:sticky;top:0;background:#fffdf8;font-size:13px;}
+  th.dim{width:130px;color:var(--sub);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.4px;}
+  tbody th{color:var(--sub);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.3px;
+    white-space:nowrap;background:#faf7f0;}
+  .app{font-size:15px;font-weight:800;}
+  .app small{display:block;font-weight:600;color:var(--sub);font-size:11px;margin-top:2px;}
+  .pill{display:inline-block;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:700;}
+  /* Googit highlighted column */
+  col.gcol{background:rgba(245,222,168,.28);}
+  .chead{border-top-left-radius:10px;border-top-right-radius:10px;}
+  .gdot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:middle;}
+  .yes{color:#3f7d3a;font-weight:700;} .no{color:#b85b5b;font-weight:700;} .mid{color:#b58a3a;font-weight:700;}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px;}
+  .card{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:18px 20px;}
+  .card h3{font-size:16px;margin-bottom:10px;}
+  .card ul{list-style:none;}
+  .card li{padding:5px 0 5px 20px;position:relative;font-size:13.5px;}
+  .card li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:2px;background:var(--googit);}
+  .card.win li::before{background:#7fae6a;}
+  .card.risk li::before{background:#d98c93;}
+  footer{margin-top:36px;color:var(--sub);font-size:12px;text-align:center;}
+  @media(max-width:720px){.cards{grid-template-columns:1fr;}h1{font-size:27px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="badge">📝 구깃 · Googit — Competitor Analysis</span>
+    <h1>The "empty your head & crumple it" note app</h1>
+    <p class="tag">A lock‑screen‑first, ultra‑minimal post‑it app. You dump a fleeting to‑do in ≤40 characters,
+       glance at it on your lock screen, and <b>crumple it away</b> (confetti ✨) when it's done — no checkboxes,
+       no projects, no account.</p>
+  </header>
+
+  <div class="pos">
+    <b>Positioning in one line:</b> Everyone else helps you <b>manage tasks</b>; 구깃 helps you <b>forget them</b>.
+    It sits at the far <b>low‑friction / disposable</b> end of the spectrum — opposite to power task managers like Things 3 / Todoist,
+    and lighter & more playful than Apple Notes / Google Keep.
+  </div>
+
+  <div class="scroll">
+  <table>
+    <colgroup>
+      <col style="width:130px"><col class="gcol"><col><col><col><col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="dim">Dimension</th>
+        <th class="chead"><span class="app"><span class="gdot" style="background:var(--googit)"></span>구깃 (Googit)<small>this product</small></span></th>
+        <th><span class="app">Apple Notes<small>default iPhone memo</small></span></th>
+        <th><span class="app">Google Keep<small>sticky notes</small></span></th>
+        <th><span class="app">Things 3<small>premium to‑do</small></span></th>
+        <th><span class="app">Todoist<small>task manager</small></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Use case</th>
+        <td>Capture & discard fleeting to‑dos / thoughts you want <b>off your mind</b>, visible at a glance.</td>
+        <td>General note‑taking: long notes, lists, scans, sketches, attachments.</td>
+        <td>Quick colored sticky notes + reminders + labels.</td>
+        <td>Serious personal task & project management (GTD).</td>
+        <td>Cross‑platform task/project manager with collaboration.</td>
+      </tr>
+      <tr>
+        <th>Target user</th>
+        <td>People <b>overwhelmed</b> by heavy task apps; want zero‑friction "brain dump"; casual, playful.</td>
+        <td>Every iPhone owner — the default catch‑all.</td>
+        <td>Google‑ecosystem users; visual note organizers.</td>
+        <td>Productivity enthusiasts, professionals, GTD fans.</td>
+        <td>Teams & cross‑platform power users.</td>
+      </tr>
+      <tr>
+        <th>User scenario</th>
+        <td>"Buy milk" pops up → unlock, type ≤40 chars, Enter → it's on the lock‑screen widget → done → <b>tap to crumple</b> ✨.</td>
+        <td>Take meeting notes, scan a doc, make a checklist, save a photo.</td>
+        <td>Jot a note/voice/photo, color‑code, set a time/location reminder.</td>
+        <td>Plan projects, schedule Today/Upcoming, organize by area, check off.</td>
+        <td>NLP add ("pay rent every 1st"), sort by project/label/priority, share.</td>
+      </tr>
+      <tr>
+        <th>Main features</th>
+        <td>Lock‑screen widget (donut ring + ✓), 40‑char notes, <b>tap‑to‑delete (crumple)</b>, color = category + filter, drag‑reorder, paper texture, neon star‑dust.</td>
+        <td>Rich text, folders, checklists, scanning, drawing, attachments, shared notes, lock.</td>
+        <td>Color notes, labels, reminders, voice/photo, collaboration, search.</td>
+        <td>Projects/Areas, Today/Upcoming, deadlines, tags, repeating, calendar.</td>
+        <td>NLP quick‑add, projects/sections, labels/filters, priorities, recurring, integrations.</td>
+      </tr>
+      <tr>
+        <th>Capture friction</th>
+        <td><span class="yes">Lowest</span> — one field, ≤40 chars, no metadata.</td>
+        <td><span class="mid">Medium</span> — opens a doc.</td>
+        <td><span class="mid">Low–Med</span></td>
+        <td><span class="mid">Medium</span> — encourages organizing.</td>
+        <td><span class="mid">Low–Med</span> (NLP helps).</td>
+      </tr>
+      <tr>
+        <th>Note lifespan</th>
+        <td><b>Ephemeral</b> — meant to be crumpled.</td>
+        <td>Permanent / archival.</td>
+        <td>Persistent, archivable.</td>
+        <td>Until completed/logged.</td>
+        <td>Until completed/logged.</td>
+      </tr>
+      <tr>
+        <th>Editing</th>
+        <td><span class="no">No edit</span> — wrong? crumple & re‑write (by design).</td>
+        <td class="yes">Full editing</td>
+        <td class="yes">Full editing</td>
+        <td class="yes">Full editing</td>
+        <td class="yes">Full editing</td>
+      </tr>
+      <tr>
+        <th>Lock‑screen capture</th>
+        <td><span class="yes">Core</span> — the whole point (widget + glance).</td>
+        <td><span class="mid">Widget shows a note</span>, no quick‑add loop.</td>
+        <td><span class="mid">Widget</span> (view/quick note).</td>
+        <td><span class="mid">Widgets</span> (view), add via app.</td>
+        <td><span class="mid">Widgets</span> (view/add).</td>
+      </tr>
+      <tr>
+        <th>Reminders / dates</th>
+        <td><span class="no">None</span> (intentionally).</td>
+        <td><span class="mid">Limited</span></td>
+        <td class="yes">Time & location</td>
+        <td class="yes">Rich scheduling</td>
+        <td class="yes">Rich + recurring</td>
+      </tr>
+      <tr>
+        <th>Sync / account</th>
+        <td><b>Local‑only, no account</b> (privacy).</td>
+        <td>iCloud (Apple ID).</td>
+        <td>Google account.</td>
+        <td>Things Cloud.</td>
+        <td>Account required.</td>
+      </tr>
+      <tr>
+        <th>Platform</th>
+        <td>iOS only.</td>
+        <td>Apple ecosystem.</td>
+        <td>All platforms.</td>
+        <td>Apple only.</td>
+        <td>All platforms.</td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><b>Free</b>.</td>
+        <td>Free.</td>
+        <td>Free.</td>
+        <td>Paid (one‑time, per‑platform).</td>
+        <td>Freemium (paid tiers).</td>
+      </tr>
+      <tr>
+        <th>Vibe</th>
+        <td><b>Playful, tactile</b> — paper, tilt, confetti, "head‑emptying".</td>
+        <td>Neutral / utilitarian.</td>
+        <td>Colorful / functional.</td>
+        <td>Elegant / focused.</td>
+        <td>Structured / professional.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="cards">
+    <div class="card win">
+      <h3>✅ Where 구깃 wins</h3>
+      <ul>
+        <li><b>Fastest possible capture</b> — no fields, no setup, ≤40 chars.</li>
+        <li><b>Lock‑screen native</b> — the note lives where you actually glance.</li>
+        <li><b>Disposable by design</b> — "crumple" beats an ever‑growing archive.</li>
+        <li><b>Emotional / fun</b> — confetti + paper feel; not a chore app.</li>
+        <li><b>Private & free</b> — local‑only, no account, no upsell.</li>
+        <li><b>Color = category</b> — lightweight grouping without folders.</li>
+      </ul>
+    </div>
+    <div class="card risk">
+      <h3>⚠️ Trade‑offs / risks</h3>
+      <ul>
+        <li><b>No reminders/dates</b> — not for time‑sensitive tasks.</li>
+        <li><b>No sync</b> — single device, no backup if phone is lost.</li>
+        <li><b>40‑char + no edit</b> — wrong fit for longer or evolving notes.</li>
+        <li><b>iOS‑only, niche</b> — small addressable market vs giants.</li>
+        <li><b>Easy to copy</b> — the idea is simple; defensibility = taste & feel.</li>
+        <li><b>Discovery</b> — "do I need another note app?" is the hurdle.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>구깃 (Googit) competitor analysis · for internal product thinking · 2026‑06</footer>
+</div>
+</body>
+</html>

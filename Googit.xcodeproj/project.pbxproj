@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B1159DF327A05EBAE2B40F /* crumple.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FEC51F53B8A017B8437941 /* crumple.wav */; };
+		19F44EBCA54AD9752C117CF4 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE589E5CAB77817BFE1D64F /* Feedback.swift */; };
+		1E3BAE4CA6AB836CC6C50205 /* crumple_03.png in Resources */ = {isa = PBXBuildFile; fileRef = DB753DE306003D4B060CC5B9 /* crumple_03.png */; };
+		213F5B0AF896DBAE900999AD /* crumple_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A30E717ED410EEB2C2FEDDA /* crumple_05.png */; };
+		3FC56A6844B9EAEBF68940C7 /* GoogitWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87D6337ED39D88CAB062DF5 /* GoogitWidget.swift */; };
+		40F45F9D8220DA520DF1CCF3 /* PostItPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F5B54E0BC71E58DFED8671 /* PostItPalette.swift */; };
+		4EF750687E6435F3C6458694 /* crumple_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 168FF7D52EA8D71D3E1CB50F /* crumple_02.png */; };
+		51C2C711AB1F30A04A60E0EE /* crumple_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 0197A9874A0EF8C247AA2B7D /* crumple_00.png */; };
+		63E9C2F6ED794D23FBC98952 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61773491D4B812196CA365A6 /* AppGroup.swift */; };
+		66CC77BD0840B0DC3B050E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDFC05BA500682E98BE05 /* Assets.xcassets */; };
+		6D3571A9D78D8DEA7AA8C3ED /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA44335C51817CE3D1257E5 /* Note.swift */; };
+		96FA2CA7B8DED44543704E27 /* GoogitWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23373660C5DB5CECEA55047 /* GoogitWidgetBundle.swift */; };
+		97261B49B7ED5E0245F6E572 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA44335C51817CE3D1257E5 /* Note.swift */; };
+		ACFE10BE420FA73CE15C2BF0 /* PostItPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F5B54E0BC71E58DFED8671 /* PostItPalette.swift */; };
+		ADB07FAC35064C4AA5CEDE41 /* crumple_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A78C67D5A7979232F064917C /* crumple_01.png */; };
+		B3B31F8260572C9C8D3AC40A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EB0388A243A8DC48BF0B11 /* Foundation.framework */; };
+		B60F2E8204AA752624FB5328 /* CyclePageIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F264BBE0C4A8B7A8134B1F9 /* CyclePageIntent.swift */; };
+		BE6193CF1A2C61D1D2394745 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCA7A4F16F255D3DB5B35 /* ContentView.swift */; };
+		C8398A9C7E60051C153B9AB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EB0388A243A8DC48BF0B11 /* Foundation.framework */; };
+		CAE53958C2445C75D012E83C /* crumple_04.png in Resources */ = {isa = PBXBuildFile; fileRef = DE691027AF933C1E71632943 /* crumple_04.png */; };
+		CD35577038A3589FE2B98721 /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F943C44658BB4C4C2A242 /* NoteStore.swift */; };
+		D1CB20FAF5E599561EB44F67 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61773491D4B812196CA365A6 /* AppGroup.swift */; };
+		D4438CA6943A41C73CC4C3D9 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A59254219E9FA788ECFC3E /* ConfettiView.swift */; };
+		D7C393AD581794E6F4A97C6F /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F943C44658BB4C4C2A242 /* NoteStore.swift */; };
+		DCCC0C67E2E9A2BBEAAE4C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9008B64FDD4383EA399D7144 /* Assets.xcassets */; };
+		E5B5A1E8A11DD9A67B08438C /* PostItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC6B2CDBBE50169897ACE1 /* PostItView.swift */; };
+		EC0C0ED48EB8D07651F9D119 /* CrumpleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7840C0F17E5D2F204A9BEF /* CrumpleEffect.swift */; };
+		EF0B2DD6843067D148DD6518 /* GoogitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989004DF1DE4A2839213710B /* GoogitApp.swift */; };
+		FE82EAD96B3A3BD4AAFF77C9 /* GoogitWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9C8116E5421F0725EFD491BD /* GoogitWidget.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25C2686DBDFC70E030B34BDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C801E5154125FA05416A8E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0227D0F9DB3C704C7075234A;
+			remoteInfo = GoogitWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B69B5040B5DD28EEF19B8B99 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FE82EAD96B3A3BD4AAFF77C9 /* GoogitWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0197A9874A0EF8C247AA2B7D /* crumple_00.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_00.png; sourceTree = "<group>"; };
+		0F264BBE0C4A8B7A8134B1F9 /* CyclePageIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CyclePageIntent.swift; sourceTree = "<group>"; };
+		168FF7D52EA8D71D3E1CB50F /* crumple_02.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_02.png; sourceTree = "<group>"; };
+		19643256D3A83B47C930F00D /* Googit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Googit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7840C0F17E5D2F204A9BEF /* CrumpleEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrumpleEffect.swift; sourceTree = "<group>"; };
+		2CBC6B2CDBBE50169897ACE1 /* PostItView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostItView.swift; sourceTree = "<group>"; };
+		32EB0388A243A8DC48BF0B11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		49FCDFC05BA500682E98BE05 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BE589E5CAB77817BFE1D64F /* Feedback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		61773491D4B812196CA365A6 /* AppGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		78F5B54E0BC71E58DFED8671 /* PostItPalette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostItPalette.swift; sourceTree = "<group>"; };
+		8A30E717ED410EEB2C2FEDDA /* crumple_05.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_05.png; sourceTree = "<group>"; };
+		9008B64FDD4383EA399D7144 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		989004DF1DE4A2839213710B /* GoogitApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GoogitApp.swift; sourceTree = "<group>"; };
+		9C8116E5421F0725EFD491BD /* GoogitWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GoogitWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF11960CDF3D091EA6F01B6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A23373660C5DB5CECEA55047 /* GoogitWidgetBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GoogitWidgetBundle.swift; sourceTree = "<group>"; };
+		A59F943C44658BB4C4C2A242 /* NoteStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
+		A78C67D5A7979232F064917C /* crumple_01.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_01.png; sourceTree = "<group>"; };
+		AB4D52DCF451B2BE10062F17 /* GoogitWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = GoogitWidget.entitlements; sourceTree = "<group>"; };
+		C4A59254219E9FA788ECFC3E /* ConfettiView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		C6FEC51F53B8A017B8437941 /* crumple.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = crumple.wav; sourceTree = "<group>"; };
+		C87D6337ED39D88CAB062DF5 /* GoogitWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GoogitWidget.swift; sourceTree = "<group>"; };
+		C9CCCA7A4F16F255D3DB5B35 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB5A08F06D51CE09ABEF7127 /* Googit.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Googit.entitlements; sourceTree = "<group>"; };
+		DB753DE306003D4B060CC5B9 /* crumple_03.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_03.png; sourceTree = "<group>"; };
+		DE691027AF933C1E71632943 /* crumple_04.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_04.png; sourceTree = "<group>"; };
+		DEA44335C51817CE3D1257E5 /* Note.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86DB28EE2FC51DCBA7B6149C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8398A9C7E60051C153B9AB6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F0527BC5C3F60CC29FBA61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3B31F8260572C9C8D3AC40A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B47164306DC95EC9FEC7ADB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C4A59254219E9FA788ECFC3E /* ConfettiView.swift */,
+				C9CCCA7A4F16F255D3DB5B35 /* ContentView.swift */,
+				2B7840C0F17E5D2F204A9BEF /* CrumpleEffect.swift */,
+				5BE589E5CAB77817BFE1D64F /* Feedback.swift */,
+				989004DF1DE4A2839213710B /* GoogitApp.swift */,
+				2CBC6B2CDBBE50169897ACE1 /* PostItView.swift */,
+				49FCDFC05BA500682E98BE05 /* Assets.xcassets */,
+				C6FEC51F53B8A017B8437941 /* crumple.wav */,
+				0197A9874A0EF8C247AA2B7D /* crumple_00.png */,
+				A78C67D5A7979232F064917C /* crumple_01.png */,
+				168FF7D52EA8D71D3E1CB50F /* crumple_02.png */,
+				DB753DE306003D4B060CC5B9 /* crumple_03.png */,
+				DE691027AF933C1E71632943 /* crumple_04.png */,
+				8A30E717ED410EEB2C2FEDDA /* crumple_05.png */,
+				CB5A08F06D51CE09ABEF7127 /* Googit.entitlements */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		230D78501F90F2A0239A8161 = {
+			isa = PBXGroup;
+			children = (
+				8D48344CF35E343443BA7D43 /* Products */,
+				908FA5E1EE7630B556E00BFB /* Frameworks */,
+				404860AA4AAE452671ED7A0D /* Shared */,
+				1B47164306DC95EC9FEC7ADB /* App */,
+				E459CCE9CF35D05620703642 /* Widget */,
+			);
+			sourceTree = "<group>";
+		};
+		404860AA4AAE452671ED7A0D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				61773491D4B812196CA365A6 /* AppGroup.swift */,
+				DEA44335C51817CE3D1257E5 /* Note.swift */,
+				A59F943C44658BB4C4C2A242 /* NoteStore.swift */,
+				78F5B54E0BC71E58DFED8671 /* PostItPalette.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		8D48344CF35E343443BA7D43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				19643256D3A83B47C930F00D /* Googit.app */,
+				9C8116E5421F0725EFD491BD /* GoogitWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		908FA5E1EE7630B556E00BFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E83DE36C31D57AD00161691 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E83DE36C31D57AD00161691 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				32EB0388A243A8DC48BF0B11 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E459CCE9CF35D05620703642 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				0F264BBE0C4A8B7A8134B1F9 /* CyclePageIntent.swift */,
+				C87D6337ED39D88CAB062DF5 /* GoogitWidget.swift */,
+				A23373660C5DB5CECEA55047 /* GoogitWidgetBundle.swift */,
+				9008B64FDD4383EA399D7144 /* Assets.xcassets */,
+				9DF11960CDF3D091EA6F01B6 /* Info.plist */,
+				AB4D52DCF451B2BE10062F17 /* GoogitWidget.entitlements */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0227D0F9DB3C704C7075234A /* GoogitWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44DD98A6E5B5F0621AF5A941 /* Build configuration list for PBXNativeTarget "GoogitWidget" */;
+			buildPhases = (
+				3067187BE2EA1417AA214164 /* Sources */,
+				86DB28EE2FC51DCBA7B6149C /* Frameworks */,
+				DA0512D54E8D4C9FC7AE3693 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoogitWidget;
+			productName = GoogitWidget;
+			productReference = 9C8116E5421F0725EFD491BD /* GoogitWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4778962B9EF091627DD8B7E3 /* Googit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4995981402A5CB78490A40CF /* Build configuration list for PBXNativeTarget "Googit" */;
+			buildPhases = (
+				469A05D7F75BC8051ECF1622 /* Sources */,
+				90F0527BC5C3F60CC29FBA61 /* Frameworks */,
+				F4C03FAD4AF77FAA2FEEFC97 /* Resources */,
+				B69B5040B5DD28EEF19B8B99 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A29AF9B55B088645E16E03B /* PBXTargetDependency */,
+			);
+			name = Googit;
+			productName = Googit;
+			productReference = 19643256D3A83B47C930F00D /* Googit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C801E5154125FA05416A8E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0227D0F9DB3C704C7075234A = {
+						DevelopmentTeam = 533LKDNU34;
+						ProvisioningStyle = Automatic;
+					};
+					4778962B9EF091627DD8B7E3 = {
+						DevelopmentTeam = 533LKDNU34;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 7E984B6347D6CDF0DC385AA4 /* Build configuration list for PBXProject "Googit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 230D78501F90F2A0239A8161;
+			productRefGroup = 8D48344CF35E343443BA7D43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4778962B9EF091627DD8B7E3 /* Googit */,
+				0227D0F9DB3C704C7075234A /* GoogitWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA0512D54E8D4C9FC7AE3693 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCCC0C67E2E9A2BBEAAE4C58 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C03FAD4AF77FAA2FEEFC97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CC77BD0840B0DC3B050E60 /* Assets.xcassets in Resources */,
+				00B1159DF327A05EBAE2B40F /* crumple.wav in Resources */,
+				51C2C711AB1F30A04A60E0EE /* crumple_00.png in Resources */,
+				ADB07FAC35064C4AA5CEDE41 /* crumple_01.png in Resources */,
+				4EF750687E6435F3C6458694 /* crumple_02.png in Resources */,
+				1E3BAE4CA6AB836CC6C50205 /* crumple_03.png in Resources */,
+				CAE53958C2445C75D012E83C /* crumple_04.png in Resources */,
+				213F5B0AF896DBAE900999AD /* crumple_05.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3067187BE2EA1417AA214164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B60F2E8204AA752624FB5328 /* CyclePageIntent.swift in Sources */,
+				3FC56A6844B9EAEBF68940C7 /* GoogitWidget.swift in Sources */,
+				96FA2CA7B8DED44543704E27 /* GoogitWidgetBundle.swift in Sources */,
+				D1CB20FAF5E599561EB44F67 /* AppGroup.swift in Sources */,
+				6D3571A9D78D8DEA7AA8C3ED /* Note.swift in Sources */,
+				D7C393AD581794E6F4A97C6F /* NoteStore.swift in Sources */,
+				40F45F9D8220DA520DF1CCF3 /* PostItPalette.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		469A05D7F75BC8051ECF1622 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4438CA6943A41C73CC4C3D9 /* ConfettiView.swift in Sources */,
+				BE6193CF1A2C61D1D2394745 /* ContentView.swift in Sources */,
+				EC0C0ED48EB8D07651F9D119 /* CrumpleEffect.swift in Sources */,
+				19F44EBCA54AD9752C117CF4 /* Feedback.swift in Sources */,
+				EF0B2DD6843067D148DD6518 /* GoogitApp.swift in Sources */,
+				E5B5A1E8A11DD9A67B08438C /* PostItView.swift in Sources */,
+				63E9C2F6ED794D23FBC98952 /* AppGroup.swift in Sources */,
+				97261B49B7ED5E0245F6E572 /* Note.swift in Sources */,
+				CD35577038A3589FE2B98721 /* NoteStore.swift in Sources */,
+				ACFE10BE420FA73CE15C2BF0 /* PostItPalette.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A29AF9B55B088645E16E03B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogitWidget;
+			target = 0227D0F9DB3C704C7075234A /* GoogitWidget */;
+			targetProxy = 25C2686DBDFC70E030B34BDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		241B60D1C7295B3520584E83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Widget/GoogitWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 533LKDNU34;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit.GoogitWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3C08583827DE58CED7C47099 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = Widget/GoogitWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 533LKDNU34;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit.GoogitWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		54453DDB1F9DE30E338D987A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = App/Googit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 533LKDNU34;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF01D3A20C7BF3A4D5DAFC89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CC47B8E22A00C0F73EA5A6EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = App/Googit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 533LKDNU34;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DB394DD3CFE1AEF5B64D9815 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44DD98A6E5B5F0621AF5A941 /* Build configuration list for PBXNativeTarget "GoogitWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				241B60D1C7295B3520584E83 /* Release */,
+				3C08583827DE58CED7C47099 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4995981402A5CB78490A40CF /* Build configuration list for PBXNativeTarget "Googit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54453DDB1F9DE30E338D987A /* Release */,
+				CC47B8E22A00C0F73EA5A6EF /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E984B6347D6CDF0DC385AA4 /* Build configuration list for PBXProject "Googit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF01D3A20C7BF3A4D5DAFC89 /* Debug */,
+				DB394DD3CFE1AEF5B64D9815 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C801E5154125FA05416A8E2 /* Project object */;
+}
