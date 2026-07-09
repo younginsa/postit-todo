@@ -26,8 +26,9 @@ app_refs    = app_swift.map    { |f| app_group_g.new_reference(f) }
 widget_refs = widget_swift.map { |f| widget_group.new_reference(f) }
 
 app_assets_ref    = app_group_g.new_reference(File.join(ROOT, 'App', 'Assets.xcassets'))
-app_resource_refs = (Dir[File.join(ROOT, 'App', '*.wav')] + Dir[File.join(ROOT, 'App', '*.png')]).sort.map { |f| app_group_g.new_reference(f) }
+app_resource_refs = (Dir[File.join(ROOT, 'App', '*.wav')] + Dir[File.join(ROOT, 'App', '*.png')] + Dir[File.join(ROOT, 'App', '*.xcstrings')]).sort.map { |f| app_group_g.new_reference(f) }
 widget_assets_ref = widget_group.new_reference(File.join(ROOT, 'Widget', 'Assets.xcassets'))
+widget_resource_refs = Dir[File.join(ROOT, 'Widget', '*.xcstrings')].sort.map { |f| widget_group.new_reference(f) }
 app_entitlements_ref = app_group_g.new_reference(File.join(ROOT, 'App', 'Googit.entitlements'))
 widget_info_ref      = widget_group.new_reference(File.join(ROOT, 'Widget', 'Info.plist'))
 widget_entitlements_ref = widget_group.new_reference(File.join(ROOT, 'Widget', 'GoogitWidget.entitlements'))
@@ -42,6 +43,11 @@ app_resource_refs.each { |r| app.resources_build_phase.add_file_reference(r) }
 widget = project.new_target(:app_extension, 'GoogitWidget', :ios, DEPLOY)
 (widget_refs + shared_refs).each { |r| widget.source_build_phase.add_file_reference(r) }
 widget.resources_build_phase.add_file_reference(widget_assets_ref)
+widget_resource_refs.each { |r| widget.resources_build_phase.add_file_reference(r) }
+
+# ---- Localization (ko source + en) ----
+project.root_object.development_region = 'ko'
+project.root_object.known_regions = ['ko', 'en', 'Base']
 
 # ---- Common build settings ----
 def common(bc)

@@ -41,13 +41,6 @@ struct ContentView: View {
     @State private var paletteFrames: [Int: CGRect] = [:]
     @State private var selectedCategory: Int? = nil      // 색 탭 필터 (nil = 전체)
 
-    // TEMP: 프리뷰 영상/스크린샷용 데모 상태 — TestFlight 업로드 전 반드시 제거
-    @State private var demoLockVisible = ProcessInfo.processInfo.environment["GOOGIT_DEMO"] != nil
-    @State private var demoLockStage = 0
-    @State private var demoTap: DemoTap? = nil
-    @State private var demoDrag: ActiveDrag? = nil
-    enum DemoTap { case check, memo }
-
     private let rootSpace = "root"
     private var isDragging: Bool { drag != nil }
 
@@ -61,7 +54,7 @@ struct ContentView: View {
             .coordinateSpace(name: rootSpace)
 
             // 손가락 따라다니는 '집어 든 메모' (묻힌 색 미리보기)
-            if let d = drag ?? demoDrag, let note = store.notes.first(where: { $0.id == d.id }) {
+            if let d = drag, let note = store.notes.first(where: { $0.id == d.id }) {
                 let preview = pickedColor ?? hoverIndex(d)
                 let shown = preview.map { note.recolored($0) } ?? note
                 let w = rowFrames[d.id]?.width ?? UIScreen.main.bounds.width - 36
@@ -73,13 +66,6 @@ struct ContentView: View {
                     .allowsHitTesting(false)
                     .zIndex(10)
             }
-
-            // TEMP: 프리뷰 영상용 가짜 잠금화면 — TestFlight 업로드 전 반드시 제거
-            if demoLockVisible {
-                demoLockScreen
-                    .zIndex(20)
-                    .transition(.opacity.combined(with: .scale(scale: 1.08)))
-            }
         }
         .background(
             PostItPalette.canvas
@@ -89,38 +75,6 @@ struct ContentView: View {
         .preferredColorScheme(.light)   // 라이트 전용 (다크 모드 따라가지 않음)
         .onAppear {
             if debugProgress != nil && store.notes.isEmpty { store.add("회의 자료 준비") }
-            // TEMP: 스크린샷용 데모 시드 — TestFlight 업로드 전 반드시 제거
-            if ProcessInfo.processInfo.environment["GOOGIT_SEED"] != nil && store.notes.isEmpty {
-                let demo: [(String, Int?)] = [
-                    ("우유·계란 사기", 0),
-                    ("엄마한테 전화", 1),
-                    ("금요일까지 보고서 초안", 3),
-                    ("자기 전에 약 먹기", 2),
-                    ("서점에서 책 픽업", 4),
-                    ("화분에 물 주기", 2),
-                    ("주말에 이불 빨래", 5),
-                ]
-                for (text, color) in demo.reversed() { store.add(text, colorIndex: color) }
-            }
-            // TEMP: 스크린샷용 필터 상태 — TestFlight 업로드 전 반드시 제거
-            if let f = ProcessInfo.processInfo.environment["GOOGIT_FILTER"], let i = Int(f) {
-                selectedCategory = i
-            }
-            // TEMP: 프리뷰 영상용 자동 시연 (골든 플로우) — TestFlight 업로드 전 반드시 제거
-            if ProcessInfo.processInfo.environment["GOOGIT_DEMO"] != nil {
-                runDemo()
-            }
-            // TEMP: 색칠 드래그 스크린샷용 — TestFlight 업로드 전 반드시 제거
-            if ProcessInfo.processInfo.environment["GOOGIT_DRAG"] != nil {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    if let note = store.notes.first(where: { $0.text == "주말에 이불 빨래" }) {
-                        let target = paletteFrames[4].map { CGPoint(x: $0.midX, y: $0.midY - 130) }
-                            ?? CGPoint(x: 300, y: 700)
-                        demoDrag = ActiveDrag(id: note.id, location: target, startOrder: [])
-                        pickedColor = 4
-                    }
-                }
-            }
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
@@ -226,10 +180,10 @@ struct ContentView: View {
     }
 
     private var paletteHint: String {
-        if hoverIndexValue != nil { return "이 색으로 칠하기 🎨" }
-        if isDragging && pickedColor != nil { return "색 묻힌 채 이동 중 — 놓으면 적용" }
-        if selectedCategory != nil { return "이 색 메모만 보는 중 · 색 다시 탭 = 전체" }
-        return "색 탭 = 그 색만 보기 · 메모 끌어 색에 콕 = 색칠"
+        if hoverIndexValue != nil { return String(localized: "이 색으로 칠하기 🎨") }
+        if isDragging && pickedColor != nil { return String(localized: "색 묻힌 채 이동 중 — 놓으면 적용") }
+        if selectedCategory != nil { return String(localized: "이 색 메모만 보는 중 · 색 다시 탭 = 전체") }
+        return String(localized: "색 탭 = 그 색만 보기 · 메모 끌어 색에 콕 = 색칠")
     }
 
     private func paintBlob(_ i: Int) -> some View {
@@ -323,132 +277,6 @@ struct ContentView: View {
         }
         draft = ""
         inputFocused = true
-    }
-
-    // TEMP: 프리뷰 영상용 자동 시연 — TestFlight 업로드 전 반드시 제거
-    private func runDemo() {
-        if store.notes.isEmpty {
-            let demo: [(String, Int?)] = [
-                ("엄마한테 전화", 1),
-                ("금요일까지 보고서 초안", 3),
-                ("자기 전에 약 먹기", 2),
-                ("화분에 물 주기", 2),
-                ("주말에 이불 빨래", 5),
-            ]
-            for (text, color) in demo.reversed() { store.add(text, colorIndex: color) }
-        }
-        let typing = "택배 반품 보내기"
-        Task { @MainActor in
-            // 1) 잠금화면: ✓ 탭 → 지금 할일 삭제, 다음 할일 등장
-            try? await Task.sleep(for: .seconds(2.0))
-            withAnimation(.easeInOut(duration: 0.2)) { demoTap = .check }
-            try? await Task.sleep(for: .seconds(0.55))
-            withAnimation(.spring(response: 0.45, dampingFraction: 0.7)) {
-                demoLockStage = 1
-                demoTap = nil
-            }
-            try? await Task.sleep(for: .seconds(1.7))
-            // 2) 할일 텍스트 탭 → 잠금화면 걷히며 앱 오픈
-            withAnimation(.easeInOut(duration: 0.2)) { demoTap = .memo }
-            try? await Task.sleep(for: .seconds(0.5))
-            withAnimation(.easeInOut(duration: 0.55)) {
-                demoLockVisible = false
-                demoTap = nil
-            }
-            try? await Task.sleep(for: .seconds(1.1))
-            // 3) 새 메모 타이핑 → 추가
-            inputFocused = true
-            try? await Task.sleep(for: .seconds(1.0))
-            for ch in typing {
-                draft.append(ch)
-                try? await Task.sleep(for: .seconds(0.15))
-            }
-            try? await Task.sleep(for: .seconds(0.6))
-            add()
-            try? await Task.sleep(for: .seconds(1.3))
-            inputFocused = false
-            try? await Task.sleep(for: .seconds(1.0))
-            // 4) 색 필터 켰다 끄기
-            toggleFilter(2)
-            try? await Task.sleep(for: .seconds(1.7))
-            toggleFilter(2)
-            try? await Task.sleep(for: .seconds(1.0))
-            // 5) 끝낸 일 톡 → 별가루
-            if let done = store.notes.first(where: { $0.text == "엄마한테 전화" }) {
-                crumple(done)
-            }
-            try? await Task.sleep(for: .seconds(1.5))
-            if let done2 = store.notes.first(where: { $0.text == "화분에 물 주기" }) {
-                crumple(done2)
-            }
-        }
-    }
-
-    // TEMP: 프리뷰 영상용 가짜 잠금화면 UI — TestFlight 업로드 전 반드시 제거
-    private var demoLockScreen: some View {
-        ZStack {
-            LinearGradient(
-                colors: [Color(red: 0.18, green: 0.16, blue: 0.29),
-                         Color(red: 0.26, green: 0.23, blue: 0.39),
-                         Color(red: 0.42, green: 0.31, blue: 0.43)],
-                startPoint: .top, endPoint: .bottom
-            )
-            .ignoresSafeArea()
-            VStack(spacing: 0) {
-                Text("7월 7일 화요일")
-                    .font(.system(size: 19, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.95))
-                    .padding(.top, 70)
-                Text("9:41")
-                    .font(.system(size: 96, weight: .thin, design: .rounded))
-                    .foregroundStyle(.white)
-                demoWidget
-                    .padding(.top, 24)
-                Spacer()
-            }
-        }
-    }
-
-    private var demoWidget: some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle().stroke(.white.opacity(0.3), lineWidth: 4)
-                Circle().trim(from: 0, to: demoLockStage == 0 ? 1.0/6.0 : 1.0/5.0)
-                    .stroke(.white, style: StrokeStyle(lineWidth: 4, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                Image(systemName: "checkmark")
-                    .font(.system(size: 17, weight: .light))
-                    .foregroundStyle(.white)
-            }
-            .frame(width: 46, height: 46)
-            .overlay { if demoTap == .check { demoFinger } }
-
-            Rectangle().fill(.white.opacity(0.35)).frame(width: 1, height: 42)
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(demoLockStage == 0 ? "우유·계란 사기" : "엄마한테 전화")
-                    .font(.system(size: 19, weight: .bold))
-                    .foregroundStyle(.white)
-                    .id(demoLockStage)
-                    .transition(.scale(scale: 0.6).combined(with: .opacity))
-                Text(demoLockStage == 0 ? "1 / 6" : "1 / 5")
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.7))
-            }
-            .overlay { if demoTap == .memo { demoFinger } }
-
-            Spacer(minLength: 0)
-        }
-        .padding(.horizontal, 20)
-        .frame(width: 312, height: 80)
-        .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.16)))
-    }
-
-    private var demoFinger: some View {
-        Circle()
-            .fill(.white.opacity(0.32))
-            .overlay(Circle().strokeBorder(.white.opacity(0.85), lineWidth: 1.5))
-            .frame(width: 46, height: 46)
     }
 
     /// 구기기 = 짧은 탭 → 별가루 + 햅틱 + 소리 → 영구 삭제.

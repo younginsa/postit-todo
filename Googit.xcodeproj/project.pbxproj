@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00B1159DF327A05EBAE2B40F /* crumple.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6FEC51F53B8A017B8437941 /* crumple.wav */; };
+		11181E78BDBA2E75A4BED70F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BB15B36E463D4CFEB1CF9F8A /* InfoPlist.xcstrings */; };
 		19F44EBCA54AD9752C117CF4 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE589E5CAB77817BFE1D64F /* Feedback.swift */; };
 		1E3BAE4CA6AB836CC6C50205 /* crumple_03.png in Resources */ = {isa = PBXBuildFile; fileRef = DB753DE306003D4B060CC5B9 /* crumple_03.png */; };
 		213F5B0AF896DBAE900999AD /* crumple_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A30E717ED410EEB2C2FEDDA /* crumple_05.png */; };
@@ -18,6 +19,7 @@
 		63E9C2F6ED794D23FBC98952 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61773491D4B812196CA365A6 /* AppGroup.swift */; };
 		66CC77BD0840B0DC3B050E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FCDFC05BA500682E98BE05 /* Assets.xcassets */; };
 		6D3571A9D78D8DEA7AA8C3ED /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA44335C51817CE3D1257E5 /* Note.swift */; };
+		9171E5BFEA9E1B72149F1D42 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1E64260DADE65D62351F52D0 /* Localizable.xcstrings */; };
 		96FA2CA7B8DED44543704E27 /* GoogitWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23373660C5DB5CECEA55047 /* GoogitWidgetBundle.swift */; };
 		97261B49B7ED5E0245F6E572 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA44335C51817CE3D1257E5 /* Note.swift */; };
 		ACFE10BE420FA73CE15C2BF0 /* PostItPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F5B54E0BC71E58DFED8671 /* PostItPalette.swift */; };
@@ -32,6 +34,7 @@
 		D4438CA6943A41C73CC4C3D9 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A59254219E9FA788ECFC3E /* ConfettiView.swift */; };
 		D7C393AD581794E6F4A97C6F /* NoteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F943C44658BB4C4C2A242 /* NoteStore.swift */; };
 		DCCC0C67E2E9A2BBEAAE4C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9008B64FDD4383EA399D7144 /* Assets.xcassets */; };
+		E4239B871E3256AA0F5504D9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C9EA7D388FA7731908577E07 /* Localizable.xcstrings */; };
 		E5B5A1E8A11DD9A67B08438C /* PostItView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBC6B2CDBBE50169897ACE1 /* PostItView.swift */; };
 		EC0C0ED48EB8D07651F9D119 /* CrumpleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7840C0F17E5D2F204A9BEF /* CrumpleEffect.swift */; };
 		EF0B2DD6843067D148DD6518 /* GoogitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989004DF1DE4A2839213710B /* GoogitApp.swift */; };
@@ -67,6 +70,7 @@
 		0F264BBE0C4A8B7A8134B1F9 /* CyclePageIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CyclePageIntent.swift; sourceTree = "<group>"; };
 		168FF7D52EA8D71D3E1CB50F /* crumple_02.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_02.png; sourceTree = "<group>"; };
 		19643256D3A83B47C930F00D /* Googit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Googit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E64260DADE65D62351F52D0 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2B7840C0F17E5D2F204A9BEF /* CrumpleEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrumpleEffect.swift; sourceTree = "<group>"; };
 		2CBC6B2CDBBE50169897ACE1 /* PostItView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PostItView.swift; sourceTree = "<group>"; };
 		32EB0388A243A8DC48BF0B11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,10 +87,12 @@
 		A59F943C44658BB4C4C2A242 /* NoteStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NoteStore.swift; sourceTree = "<group>"; };
 		A78C67D5A7979232F064917C /* crumple_01.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_01.png; sourceTree = "<group>"; };
 		AB4D52DCF451B2BE10062F17 /* GoogitWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = GoogitWidget.entitlements; sourceTree = "<group>"; };
+		BB15B36E463D4CFEB1CF9F8A /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		C4A59254219E9FA788ECFC3E /* ConfettiView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		C6FEC51F53B8A017B8437941 /* crumple.wav */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.wav; path = crumple.wav; sourceTree = "<group>"; };
 		C87D6337ED39D88CAB062DF5 /* GoogitWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GoogitWidget.swift; sourceTree = "<group>"; };
 		C9CCCA7A4F16F255D3DB5B35 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C9EA7D388FA7731908577E07 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		CB5A08F06D51CE09ABEF7127 /* Googit.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = Googit.entitlements; sourceTree = "<group>"; };
 		DB753DE306003D4B060CC5B9 /* crumple_03.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_03.png; sourceTree = "<group>"; };
 		DE691027AF933C1E71632943 /* crumple_04.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = crumple_04.png; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 				DE691027AF933C1E71632943 /* crumple_04.png */,
 				8A30E717ED410EEB2C2FEDDA /* crumple_05.png */,
 				CB5A08F06D51CE09ABEF7127 /* Googit.entitlements */,
+				1E64260DADE65D62351F52D0 /* Localizable.xcstrings */,
+				BB15B36E463D4CFEB1CF9F8A /* InfoPlist.xcstrings */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -191,6 +199,7 @@
 				9008B64FDD4383EA399D7144 /* Assets.xcassets */,
 				9DF11960CDF3D091EA6F01B6 /* Info.plist */,
 				AB4D52DCF451B2BE10062F17 /* GoogitWidget.entitlements */,
+				C9EA7D388FA7731908577E07 /* Localizable.xcstrings */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -255,9 +264,10 @@
 			};
 			buildConfigurationList = 7E984B6347D6CDF0DC385AA4 /* Build configuration list for PBXProject "Googit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				ko,
 				en,
 				Base,
 			);
@@ -278,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCCC0C67E2E9A2BBEAAE4C58 /* Assets.xcassets in Resources */,
+				E4239B871E3256AA0F5504D9 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +304,8 @@
 				1E3BAE4CA6AB836CC6C50205 /* crumple_03.png in Resources */,
 				CAE53958C2445C75D012E83C /* crumple_04.png in Resources */,
 				213F5B0AF896DBAE900999AD /* crumple_05.png in Resources */,
+				9171E5BFEA9E1B72149F1D42 /* Localizable.xcstrings in Resources */,
+				11181E78BDBA2E75A4BED70F /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,14 +363,14 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = Widget/GoogitWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 533LKDNU34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit.GoogitWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -377,14 +390,14 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = Widget/GoogitWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 533LKDNU34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "구깃";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit.GoogitWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -403,7 +416,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = App/Googit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 533LKDNU34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -415,7 +428,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -496,7 +509,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = App/Googit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 533LKDNU34;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -508,7 +521,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.younginsa.googit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

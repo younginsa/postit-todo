@@ -1,0 +1,76 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "머릿속 메모…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick note…"
+          }
+        }
+      }
+    },
+    "머릿속을 비워보세요.\n아래에 적고 엔터." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear your mind.\nType below and hit return."
+          }
+        }
+      }
+    },
+    "이 색 메모가 없어요.\n색을 다시 탭하면 전체로 돌아가요." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No notes in this color.\nTap the color again to see all."
+          }
+        }
+      }
+    },
+    "이 색으로 칠하기 🎨" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drop to paint it this color 🎨"
+          }
+        }
+      }
+    },
+    "색 묻힌 채 이동 중 — 놓으면 적용" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paint picked up — release to apply"
+          }
+        }
+      }
+    },
+    "이 색 메모만 보는 중 · 색 다시 탭 = 전체" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Showing this color only · tap again for all"
+          }
+        }
+      }
+    },
+    "색 탭 = 그 색만 보기 · 메모 끌어 색에 콕 = 색칠" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap a color to filter · drag a note onto one to paint"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
