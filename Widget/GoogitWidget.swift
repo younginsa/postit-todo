@@ -102,7 +102,7 @@ struct GoogitWidget: Widget {
             GoogitWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("구깃")
-        .description("최신 메모. 탭하면 다음 3개로 넘어갑니다.")
+        .description("잠금화면의 최신 메모. ✓를 탭하면 완료돼요.")
         .supportedFamilies([.accessoryRectangular])
     }
 }
