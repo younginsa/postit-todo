@@ -31,6 +31,36 @@
         }
       }
     },
+    "다음 할일" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Up next"
+          }
+        }
+      }
+    },
+    "할일 %lld개 · 구깃" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld to-dos · Googit"
+          }
+        }
+      }
+    },
+    "머릿속을 비워보세요.\n아래에 적고 엔터." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear your mind.\nType below and hit return."
+          }
+        }
+      }
+    },
     "다음 페이지" : {
       "localizations" : {
         "en" : {
