@@ -135,6 +135,7 @@ struct HomeMediumView: View {
                                 RoundedRectangle(cornerRadius: 3, style: .continuous)
                                     .fill(PostItPalette.color(for: next))
                                     .frame(width: 11, height: 11)
+                                    .environment(\.colorScheme, .light)
                                 Text(next.text)
                                     .font(.system(size: 13, weight: .semibold, design: .rounded))
                                     .foregroundStyle(PostItPalette.ink.opacity(0.75))
@@ -201,6 +202,8 @@ struct PostItCard: View {
             .padding(12)
         }
         .rotationEffect(.degrees(PostItPalette.tilt(for: note)))
+        // 다크모드에서도 포스트잇은 밝은 종이색 그대로 (다크 팔레트가 탁해서 카드에만 라이트 강제)
+        .environment(\.colorScheme, .light)
     }
 }
 
