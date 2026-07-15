@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://younginsa.github.io/postit-todo/sitemap.xml
