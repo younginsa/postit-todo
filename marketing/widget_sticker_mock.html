@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1240px; height:1240px; overflow:hidden; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",-apple-system,sans-serif;
+    background:
+      radial-gradient(120% 80% at 15% 0%, #D8F1FF 0%, transparent 55%),
+      radial-gradient(130% 90% at 100% 100%, #D3F8E8 0%, transparent 60%),
+      linear-gradient(165deg, #C4E8F8 0%, #D3F2E6 50%, #DCE6FA 100%);
+    display:flex; flex-direction:column; align-items:center; gap:44px; padding-top:46px; }
+  .title { font-size:44px; font-weight:800; color:#3A352F; }
+  .sub { font-size:28px; font-weight:500; color:rgba(58,53,47,0.6); margin-top:-26px; }
+  .wmedium { width:1029px; height:474px; border-radius:66px; background:#F5F2EB;
+    box-shadow:0 24px 60px rgba(45,80,105,0.22); position:relative; display:flex; gap:30px; padding:38px; }
+  .wsmall { width:474px; height:474px; border-radius:66px; background:#F5F2EB;
+    box-shadow:0 24px 60px rgba(45,80,105,0.22); position:relative; padding:36px; }
+  .postit { border-radius:22px; position:relative; display:flex; flex-direction:column; padding:32px;
+    box-shadow:0 6px 18px rgba(58,53,47,0.12); }
+  .gridp { background-image:repeating-linear-gradient(0deg, rgba(58,53,47,0.07) 0 2px, transparent 2px 30px),
+    repeating-linear-gradient(90deg, rgba(58,53,47,0.07) 0 2px, transparent 2px 30px); }
+  .ptext { font-size:42px; font-weight:700; color:#3A352F; line-height:1.28; letter-spacing:-0.5px; }
+  .pbottom { margin-top:auto; display:flex; align-items:center; justify-content:space-between; }
+  .ppage { font-size:29px; font-weight:600; color:rgba(58,53,47,0.45); }
+  .check { width:76px; height:76px; border-radius:50%; border:4px solid rgba(58,53,47,0.35);
+    display:flex; align-items:center; justify-content:center; font-size:38px; color:rgba(58,53,47,0.55); font-weight:600; }
+  .stk { position:absolute; filter:drop-shadow(0 4px 8px rgba(58,53,47,0.22)); z-index:3; }
+  .nlabel { font-size:28px; font-weight:700; color:rgba(58,53,47,0.4); letter-spacing:0.5px; }
+  .nrow { display:flex; align-items:center; gap:18px; }
+  .nchip { width:28px; height:28px; border-radius:9px; flex:0 0 auto; }
+  .ntext { font-size:33px; font-weight:600; color:rgba(58,53,47,0.75); white-space:nowrap; }
+  .nstk { font-size:30px; margin-left:-6px; }
+  .nfoot { margin-top:auto; font-size:28px; font-weight:600; color:rgba(58,53,47,0.45); }
+</style>
+</head>
+<body>
+  <div class="title">스티커 붙은 메모, 홈 위젯에도 그대로 🎀</div>
+  <div class="sub">메모에 붙인 스티커가 위젯까지 따라와요 — 완료하면 별가루와 함께 안녕</div>
+
+  <div class="wmedium">
+    <div class="postit gridp" style="width:330px; background:#F5DEA8; transform:rotate(-1.6deg);">
+      <div class="stk" style="top:-24px; left:-14px; font-size:64px; transform:rotate(-14deg);">⭐</div>
+      <div class="stk" style="bottom:52px; right:-12px; font-size:52px; transform:rotate(10deg);">🌊</div>
+      <div class="ptext">우유·계란 사기</div>
+      <div class="pbottom"><span></span><div class="check">✓</div></div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:18px; padding:8px 4px;">
+      <div class="nlabel">다음 할일</div>
+      <div class="nrow"><div class="nchip" style="background:#F4D2D4"></div><div class="ntext">엄마한테 전화</div><div class="nstk">💖</div></div>
+      <div class="nrow"><div class="nchip" style="background:#D2E0E4"></div><div class="ntext">금요일까지 보고서 초안</div></div>
+      <div class="nrow"><div class="nchip" style="background:#CCDFC7"></div><div class="ntext">자기 전에 약 먹기</div><div class="nstk">🍀</div></div>
+      <div class="nrow"><div class="nchip" style="background:#CCDFC7"></div><div class="ntext">화분에 물 주기</div></div>
+      <div class="nfoot">할일 7개 · 구깃</div>
+    </div>
+  </div>
+
+  <div class="wsmall">
+    <div class="postit gridp" style="position:absolute; inset:36px; background:#F5DEA8; transform:rotate(-1.6deg);">
+      <div class="stk" style="top:-26px; left:-16px; font-size:70px; transform:rotate(-14deg);">⭐</div>
+      <div class="stk" style="top:-18px; right:64px; font-size:44px; transform:rotate(12deg);">✨</div>
+      <div class="stk" style="bottom:64px; right:-14px; font-size:56px; transform:rotate(8deg);">🌊</div>
+      <div class="ptext" style="font-size:44px;">우유·계란 사기</div>
+      <div class="pbottom"><span class="ppage">1 / 7</span><div class="check">✓</div></div>
+    </div>
+  </div>
+</body>
+</html>

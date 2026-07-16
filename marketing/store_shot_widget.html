@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1320px; height:2868px; overflow:hidden; }
+  body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", -apple-system, sans-serif;
+    background: linear-gradient(160deg, #B9E6F8 0%, #CDF3E3 52%, #DDE7FA 100%);
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .caption { text-align:center; padding-top:150px; z-index:5; }
+  .caption h1 { font-size:78px; font-weight:600; color:#3A352F; line-height:1.35; letter-spacing:-1px; font-family:"Pretendard"; }
+  .caption p  { font-size:36px; font-weight:400; color:rgba(58,53,47,0.65); margin-top:22px; letter-spacing:-1px; opacity:0.85; }
+  .stage { flex:1; display:flex; align-items:center; justify-content:center; width:100%; position:relative; }
+  .phone { width:860px; height:1866px; background:#111; border-radius:136px; padding:22px;
+    box-shadow: 0 60px 120px rgba(45,80,105,0.32); position:relative; }
+  .screen { width:100%; height:100%; border-radius:114px; overflow:hidden; position:relative; }
+  .island { position:absolute; top:40px; left:50%; transform:translateX(-50%);
+    width:250px; height:72px; background:#000; border-radius:40px; z-index:9; }
+  .spark { position:absolute; color:#fff; text-shadow:0 0 24px rgba(255,255,255,0.95), 0 0 60px rgba(255,255,255,0.8); z-index:8; }
+  .gspark { position:absolute; color:#8CFFB8; text-shadow:0 0 26px rgba(140,255,184,0.95), 0 0 60px rgba(140,255,184,0.75); z-index:8; }
+
+  /* ---- home screen inside phone ---- */
+  .home { width:100%; height:100%; position:relative;
+    background:
+      radial-gradient(120% 80% at 15% 0%, #D8F1FF 0%, transparent 55%),
+      radial-gradient(130% 90% at 100% 100%, #D3F8E8 0%, transparent 60%),
+      linear-gradient(165deg, #C4E8F8 0%, #D3F2E6 50%, #DCE6FA 100%);
+    display:flex; flex-direction:column; align-items:center; padding-top:150px; gap:44px; }
+  .hicons { display:flex; gap:56px; }
+  .hicon { width:118px; height:118px; border-radius:30px; opacity:0.9; }
+  .hdock { position:absolute; bottom:44px; left:30px; right:30px; height:150px;
+    background:rgba(255,255,255,0.25); border-radius:56px;
+    display:flex; align-items:center; justify-content:space-around; padding:0 30px; }
+  .hdock .hicon { width:112px; height:112px; }
+
+  /* ---- googit widgets (design ③, 실제 구현 미러) ---- */
+  .canvas { background:#F5F2EB; }
+  .ink { color:#3A352F; }
+  .wmedium { width:706px; height:330px; border-radius:46px; box-shadow:0 18px 44px rgba(80,40,70,0.25);
+    overflow:hidden; position:relative; display:flex; gap:22px; padding:26px; }
+  .wsmall  { width:330px; height:330px; border-radius:46px; box-shadow:0 18px 44px rgba(80,40,70,0.25);
+    overflow:hidden; position:relative; padding:24px; }
+  .postit { border-radius:16px; position:relative; box-shadow:0 5px 14px rgba(58,53,47,0.12);
+    display:flex; flex-direction:column; padding:22px; }
+  .ptext { font-size:29px; font-weight:700; line-height:1.28; letter-spacing:-0.5px; }
+  .pbottom { margin-top:auto; display:flex; align-items:center; justify-content:space-between; }
+  .ppage { font-size:20px; font-weight:600; color:rgba(58,53,47,0.45); }
+  .check { width:54px; height:54px; border-radius:50%; border:3px solid rgba(58,53,47,0.35);
+    display:flex; align-items:center; justify-content:center; font-size:26px; color:rgba(58,53,47,0.55); font-weight:600; }
+  .nlabel { font-size:19px; font-weight:700; color:rgba(58,53,47,0.4); letter-spacing:0.5px; margin-bottom:2px; }
+  .nrow { display:flex; align-items:center; gap:13px; }
+  .nchip { width:20px; height:20px; border-radius:6px; flex:0 0 auto; }
+  .ntext { font-size:23px; font-weight:600; color:rgba(58,53,47,0.75); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nfoot { margin-top:auto; font-size:19px; font-weight:600; color:rgba(58,53,47,0.45); }
+</style>
+</head>
+<body>
+<script>
+const lang = new URLSearchParams(location.search).get('l') || 'ko';
+const T = {
+  ko: {
+    h:'홈 화면에도<br>포스트잇 콕', p:'지금 할일 크게 · 다음 할일까지 · 체크 한 번으로 완료',
+    notes:[
+      { t:'우유·계란 사기', c:'#F5DEA8' }, { t:'엄마한테 전화', c:'#F4D2D4' },
+      { t:'금요일까지 보고서 초안', c:'#D2E0E4' }, { t:'자기 전에 약 먹기', c:'#CCDFC7' },
+      { t:'화분에 물 주기', c:'#CCDFC7' },
+    ],
+    next:'다음 할일', foot:'할일 7개 · 구깃', page:'1 / 7',
+  },
+  en: {
+    h:'Post-its on your<br>Home Screen too', p:'Top to-do big · up next beside it · one tap to finish',
+    notes:[
+      { t:'Buy milk & eggs', c:'#F5DEA8' }, { t:'Call mom', c:'#F4D2D4' },
+      { t:'Report draft by Friday', c:'#D2E0E4' }, { t:'Take meds before bed', c:'#CCDFC7' },
+      { t:'Water the plants', c:'#CCDFC7' },
+    ],
+    next:'Up next', foot:'7 to-dos · Googit', page:'1 / 7',
+  },
+}[lang];
+
+const iconColors = ['#8ECAE6','#FFB4A2','#CDB4DB','#A8DADC','#F4A261','#90BE6D'];
+const icon = c => `<div class="hicon" style="background:linear-gradient(150deg, ${c}, ${c}CC)"></div>`;
+
+const medium = `
+<div class="wmedium canvas">
+  <div class="postit" style="width:224px; background:${T.notes[0].c}; transform:rotate(-1.6deg);">
+    <div class="ptext ink">${T.notes[0].t}</div>
+    <div class="pbottom"><span></span><div class="check">✓</div></div>
+  </div>
+  <div style="flex:1; display:flex; flex-direction:column; gap:12px; padding:6px 2px;">
+    <div class="nlabel">${T.next}</div>
+    ${T.notes.slice(1,5).map(n=>`<div class="nrow"><div class="nchip" style="background:${n.c}"></div><div class="ntext">${n.t}</div></div>`).join('')}
+    <div class="nfoot">${T.foot}</div>
+  </div>
+</div>`;
+
+const small = `
+<div class="wsmall canvas">
+  <div class="postit" style="position:absolute; inset:24px; background:${T.notes[0].c}; transform:rotate(-1.6deg);">
+    <div class="ptext ink" style="font-size:31px;">${T.notes[0].t}</div>
+    <div class="pbottom"><span class="ppage">${T.page}</span><div class="check">✓</div></div>
+  </div>
+</div>`;
+
+document.body.innerHTML = `
+  <div class="caption"><h1>${T.h}</h1><p>${T.p}</p></div>
+  <div class="stage">
+    <div class="spark" style="top:10%;  left:12%; font-size:70px;">✦</div>
+    <div class="gspark" style="top:6%;   right:16%; font-size:46px;">✧</div>
+    <div class="spark" style="top:34%;  right:7%;  font-size:88px;">✦</div>
+    <div class="gspark" style="bottom:18%; left:8%;  font-size:60px;">✦</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="home">
+          ${medium}
+          <div style="display:flex; gap:46px; align-items:flex-start;">
+            ${small}
+            <div style="display:grid; grid-template-columns:repeat(2,118px); gap:46px 56px; padding-top:8px;">
+              ${iconColors.slice(0,4).map(icon).join('')}
+            </div>
+          </div>
+          <div class="hicons">${iconColors.slice(0,4).map(icon).join('')}</div>
+          <div class="hicons">${iconColors.slice(2,6).map(icon).join('')}</div>
+          <div class="hdock">${iconColors.slice(0,4).map(icon).join('')}</div>
+        </div>
+      </div>
+      <div class="island"></div>
+    </div>
+  </div>`;
+</script>
+</body>
+</html>

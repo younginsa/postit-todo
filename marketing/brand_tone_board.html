@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:3180px; height:1560px; overflow:hidden; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",-apple-system,sans-serif;
+    background:#14161C; display:flex; gap:40px; padding:40px; }
+  .card { flex:1; border-radius:60px; overflow:hidden; position:relative;
+    display:flex; flex-direction:column; align-items:center; padding-top:56px; }
+  .label { font-size:54px; font-weight:800; color:#3A352F; opacity:0.85; z-index:5; }
+  .sub { font-size:30px; font-weight:500; color:rgba(58,53,47,0.6); margin-top:10px; z-index:5; }
+
+  /* 앱 아이콘 (흰 포스트잇 + 별가루, 배경만 변주) */
+  .icon { width:360px; height:360px; border-radius:82px; margin-top:52px; position:relative;
+    box-shadow:0 30px 70px rgba(40,60,90,0.35); overflow:hidden; }
+  .icon .card2 { position:absolute; left:52px; right:52px; top:118px; height:130px;
+    background:#FFFDF7; border-radius:26px; transform:rotate(-7deg);
+    box-shadow:0 10px 26px rgba(58,53,47,0.16); }
+  .icon .l1 { position:absolute; left:30px; top:38px; width:150px; height:13px; border-radius:7px; background:rgba(58,53,47,0.16); }
+  .icon .l2 { position:absolute; left:30px; top:70px; width:100px; height:13px; border-radius:7px; background:rgba(58,53,47,0.11); }
+  .spark { position:absolute; color:#fff; text-shadow:0 0 20px rgba(255,255,255,0.95), 0 0 46px rgba(255,255,255,0.7); }
+  .gspark { position:absolute; color:#8CFFB8; text-shadow:0 0 22px rgba(140,255,184,0.95), 0 0 50px rgba(140,255,184,0.7); }
+
+  /* 미니 폰 (잠금화면 위젯) */
+  .mini { margin-top:64px; width:560px; height:640px; position:relative; }
+  .mphone { width:560px; height:900px; background:#111; border-radius:90px; padding:16px;
+    box-shadow:0 40px 80px rgba(30,45,70,0.35); }
+  .mscreen { width:100%; height:100%; border-radius:76px; overflow:hidden;
+    background: radial-gradient(120% 90% at 20% 0%, #5d5086 0%, transparent 60%),
+                radial-gradient(120% 100% at 90% 100%, #8a5a7c 0%, transparent 55%),
+                linear-gradient(170deg, #2e2a4a 0%, #433a63 45%, #6b4f6e 100%);
+    display:flex; flex-direction:column; align-items:center; color:#fff; padding-top:90px; }
+  .mtime { font-size:120px; font-weight:250; letter-spacing:-2px; font-family:-apple-system,"Helvetica Neue",sans-serif; }
+  .mwidget { margin-top:34px; width:380px; height:128px; background:rgba(255,255,255,0.14);
+    border-radius:32px; display:flex; align-items:center; padding:0 30px; gap:24px; }
+  .mdonut { width:72px; height:72px; border-radius:50%; border:6px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:300; }
+  .mtext .m1 { font-size:33px; font-weight:700; }
+  .mtext .m2 { font-size:22px; font-weight:500; opacity:0.7; margin-top:5px; }
+</style>
+</head>
+<body>
+<script>
+const variants = [
+  { name:'A · 하늘하늘', desc:'파스텔 스카이 + 라벤더 · 그린은 은은한 글로우만',
+    bg:`radial-gradient(60% 46% at 10% 92%, rgba(150,255,196,0.42) 0%, transparent 70%),
+        linear-gradient(160deg, #C4E4FA 0%, #D8EBFB 48%, #E5E3F8 100%)`,
+    sparks:[['spark','10%','10%','66px','✦'],['gspark','30%','84%','80px','✦'],['spark','76%','12%','56px','✧']] },
+  { name:'B · 민트 하늘', desc:'하늘 → 민트그린이 절반쯤 섞임 · 제일 상큼',
+    bg:`linear-gradient(160deg, #B9E6F8 0%, #CDF3E3 52%, #DDE7FA 100%)`,
+    sparks:[['spark','10%','10%','66px','✦'],['spark','30%','84%','80px','✦'],['gspark','76%','12%','56px','✧']] },
+  { name:'C · 하늘 + 네온별', desc:'배경은 순수 블루톤 · 네온그린은 별가루로만 톡톡',
+    bg:`linear-gradient(160deg, #BFE3FA 0%, #D5E9FB 55%, #E4E4F7 100%)`,
+    sparks:[['gspark','10%','10%','66px','✦'],['gspark','30%','84%','80px','✦'],['gspark','74%','13%','56px','✧'],['spark','55%','88%','48px','✧']] },
+];
+
+document.body.innerHTML = variants.map(V=>`
+  <div class="card" style="background:${V.bg}">
+    ${V.sparks.map(s=>`<div class="${s[0]}" style="top:${s[1]}; left:${s[2]}; font-size:${s[3]}; z-index:4;">${s[4]}</div>`).join('')}
+    <div class="label">${V.name}</div>
+    <div class="sub">${V.desc}</div>
+    <div class="icon" style="background:${V.bg}">
+      <div class="spark" style="top:26px; left:36px; font-size:40px;">✦</div>
+      <div class="gspark" style="top:60px; right:44px; font-size:30px;">✦</div>
+      <div class="spark" style="bottom:40px; right:60px; font-size:34px;">✧</div>
+      <div class="card2"><div class="l1"></div><div class="l2"></div></div>
+    </div>
+    <div class="mini">
+      <div class="mphone"><div class="mscreen">
+        <div class="mtime">9:41</div>
+        <div class="mwidget">
+          <div class="mdonut">✓</div>
+          <div class="mtext"><div class="m1">우유·계란 사기</div><div class="m2">1 / 7</div></div>
+        </div>
+      </div></div>
+    </div>
+  </div>`).join('');
+</script>
+</body>
+</html>

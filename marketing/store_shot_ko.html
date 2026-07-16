@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1320px; height:2868px; overflow:hidden; }
+  body {
+    font-family: "Apple SD Gothic Neo", -apple-system, sans-serif;
+    background: linear-gradient(160deg, #B9E6F8 0%, #CDF3E3 52%, #DDE7FA 100%);
+    display:flex; flex-direction:column; align-items:center;
+  }
+  /* ---------- caption ---------- */
+  .caption { text-align:center; padding-top:150px; z-index:5; }
+  .caption h1 { font-size:104px; font-weight:800; color:#3A352F; line-height:1.25; letter-spacing:-2px; }
+  .caption p  { font-size:46px; font-weight:500; color:rgba(58,53,47,0.65); margin-top:28px; letter-spacing:-1px; }
+
+  /* ---------- phone frame ---------- */
+  .stage { flex:1; display:flex; align-items:center; justify-content:center; width:100%; position:relative; }
+  .phone {
+    width:860px; height:1866px;
+    background:#111; border-radius:136px; padding:22px;
+    box-shadow: 0 60px 120px rgba(45,80,105,0.32);
+    position:relative;
+  }
+  .screen {
+    width:100%; height:100%; border-radius:114px; overflow:hidden; position:relative; background:#F5F2EB;
+  }
+  .screen img.appshot { width:100%; height:100%; object-fit:cover; display:block; }
+  .island {
+    position:absolute; top:40px; left:50%; transform:translateX(-50%);
+    width:250px; height:72px; background:#000; border-radius:40px; z-index:9;
+  }
+
+  /* ---------- lockscreen mock ---------- */
+  .lock {
+    width:100%; height:100%;
+    background:
+      radial-gradient(120% 90% at 20% 0%, #5d5086 0%, transparent 60%),
+      radial-gradient(120% 100% at 90% 100%, #8a5a7c 0%, transparent 55%),
+      linear-gradient(170deg, #2e2a4a 0%, #433a63 45%, #6b4f6e 100%);
+    display:flex; flex-direction:column; align-items:center; color:#fff;
+    padding-top:170px;
+  }
+  .lock .date { font-size:40px; font-weight:600; opacity:0.9; }
+  .lock .time { font-size:200px; font-weight:250; letter-spacing:-4px; line-height:1.05;
+                font-family:-apple-system, "Helvetica Neue", sans-serif; }
+  .widget {
+    margin-top:56px;
+    width:590px; height:200px;
+    background:rgba(255,255,255,0.14);
+    border-radius:48px;
+    display:flex; align-items:center; padding:0 44px; gap:38px;
+    backdrop-filter:blur(6px);
+  }
+  .donut { position:relative; width:112px; height:112px; flex:0 0 auto; }
+  .donut svg { width:112px; height:112px; transform:rotate(-90deg); }
+  .donut .check {
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:52px; font-weight:300; color:#fff;
+  }
+  .wdivider { width:2px; height:110px; background:rgba(255,255,255,0.35); flex:0 0 auto; }
+  .wtext { display:flex; flex-direction:column; gap:10px; min-width:0; }
+  .wtext .memo { font-size:52px; font-weight:700; color:#fff; white-space:nowrap; }
+  .wtext .page { font-size:34px; font-weight:500; color:rgba(255,255,255,0.7); }
+  .lock .flash { position:absolute; bottom:110px; left:120px; width:110px; height:110px;
+    border-radius:55px; background:rgba(255,255,255,0.16); display:flex; align-items:center; justify-content:center; font-size:52px; }
+  .lock .cam { position:absolute; bottom:110px; right:120px; width:110px; height:110px;
+    border-radius:55px; background:rgba(255,255,255,0.16); display:flex; align-items:center; justify-content:center; font-size:52px; }
+
+  /* ---------- sparkles ---------- */
+  .spark { position:absolute; color:#fff; text-shadow:0 0 24px rgba(255,255,255,0.95), 0 0 60px rgba(255,214,255,0.8); z-index:8; }
+  .gspark { position:absolute; color:#8CFFB8; text-shadow:0 0 26px rgba(140,255,184,0.95), 0 0 60px rgba(140,255,184,0.75); z-index:8; }
+
+  /* ---------- hero variant ---------- */
+  body.type-hero .phone { transform:rotate(-6deg) translateY(30px); }
+  body.type-hero .caption h1 { font-size:118px; }
+
+  /* ---------- appicon (hero) ---------- */
+  .brand { display:flex; align-items:center; justify-content:center; gap:26px; margin-bottom:34px; }
+  .brand .name { font-size:56px; font-weight:800; color:#3A352F; letter-spacing:-1px; }
+</style>
+</head>
+<body>
+<script>
+const q = new URLSearchParams(location.search);
+const type = q.get('t') || 'hero';
+document.body.className = 'type-' + type;
+
+// 폰트 선택 (?f=jua|dohyeon|gowun|pretendard)
+const fonts = {
+  jua:        { css:'https://fonts.googleapis.com/css2?family=Jua&display=block', family:"'Jua'", weight:400 },
+  dohyeon:    { css:'https://fonts.googleapis.com/css2?family=Do+Hyeon&display=block', family:"'Do Hyeon'", weight:400 },
+  gowun:      { css:'https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=block', family:"'Gowun Dodum'", weight:400 },
+  pretendard: { css:'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css', family:"'Pretendard'", weight:600, h1:78, p:36 },
+  pretendard2:{ css:'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css', family:"'Pretendard'", weight:500, h1:72, p:34 },
+  nanumpen:   { css:'https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=block', family:"'Nanum Pen Script'", weight:400, h1:150, p:56 },
+  dongle:     { css:'https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=block', family:"'Dongle'", weight:700, h1:160, p:64 },
+};
+const fkey = q.get('f');
+if (fkey && fonts[fkey]) {
+  const f = fonts[fkey];
+  const link = document.createElement('link');
+  link.rel = 'stylesheet'; link.href = f.css;
+  document.head.appendChild(link);
+  const st = document.createElement('style');
+  st.textContent = `.caption h1, .caption p { font-family:${f.family}, "Apple SD Gothic Neo", sans-serif; }
+                    .caption h1 { font-weight:${f.weight}; ${f.h1 ? `font-size:${f.h1}px !important;` : ''} letter-spacing:-1px; line-height:1.35; }
+                    ${f.p ? `.caption p { font-size:${f.p}px !important; font-weight:400; opacity:0.85; margin-top:22px; }` : ''}`;
+  document.head.appendChild(st);
+}
+
+const captions = {
+  hero:   { h:'할일 포스트잇,<br>잠금화면에 톡', p:'적고, 붙이고, 끝나면 톡 — 구깃' },
+  wall:   { h:'적으면 끝', p:'포스트잇 한 장 = 메모 하나 · 40자면 충분해요' },
+  widget: { h:'잠금화면에서<br>보고 · 지우고', p:'폰을 열 필요도 없어요 — ✓ 한 번이면 끝' },
+  del:    { h:'톡하면 삭제,<br>반짝이며 안녕', p:'끝낸 일은 가볍게 톡 — 별가루가 치워줘요' },
+  filter: { h:'색깔이 곧 카테고리', p:'색을 탭하면 그 색 메모만 보여요' },
+  combo:  { h:'적으면 끝<br>끌어다 콕', p:'40자면 충분한 메모 · 물감에 떨어뜨리면 그 색으로' },
+};
+const c = captions[type];
+
+function lockHTML(){
+  return `
+  <div class="lock">
+    <div class="date">7월 7일 화요일</div>
+    <div class="time">9:41</div>
+    <div class="widget">
+      <div class="donut">
+        <svg viewBox="0 0 112 112">
+          <circle cx="56" cy="56" r="48" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="9"/>
+          <circle cx="56" cy="56" r="48" fill="none" stroke="#fff" stroke-width="9"
+                  stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="258.5"/>
+        </svg>
+        <div class="check">✓</div>
+      </div>
+      <div class="wdivider"></div>
+      <div class="wtext">
+        <div class="memo">우유·계란 사기</div>
+        <div class="page">1 / 7</div>
+      </div>
+    </div>
+    <div class="flash">🔦</div>
+    <div class="cam">📷</div>
+  </div>`;
+}
+
+const screenInner = {
+  hero:   lockHTML(),
+  wall:   `<img class="appshot" src="file:///tmp/googit_shot_ko_wall.png">`,
+  widget: lockHTML(),
+  del:    `<img class="appshot" src="file:///tmp/googit_shot_ko_confetti.png">`,
+  filter: `<img class="appshot" src="file:///tmp/googit_shot_ko_filter.png">`,
+  combo:  `<img class="appshot" src="file:///tmp/googit_shot_ko_recolor.png">`,
+};
+
+const sparkles = (type === 'hero' || type === 'del') ? `
+  <div class="spark" style="top:12%;  left:12%; font-size:70px;">✦</div>
+  <div class="gspark" style="top:7%;   right:16%; font-size:46px;">✧</div>
+  <div class="spark" style="top:30%;  right:8%;  font-size:88px;">✦</div>
+  <div class="gspark" style="bottom:20%; left:8%;  font-size:60px;">✦</div>
+  <div class="spark" style="bottom:9%;  right:14%; font-size:44px;">✧</div>
+  <div class="spark" style="top:48%;  left:5%;  font-size:38px;">✧</div>` : '';
+
+document.body.innerHTML = `
+  <div class="caption"><h1>${c.h}</h1><p>${c.p}</p></div>
+  <div class="stage">
+    ${sparkles}
+    <div class="phone">
+      <div class="screen">${screenInner[type]}</div>
+      <div class="island"></div>
+    </div>
+  </div>`;
+</script>
+</body>
+</html>

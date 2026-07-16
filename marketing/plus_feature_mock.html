@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:2960px; height:2150px; overflow:hidden; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",-apple-system,sans-serif;
+    background:linear-gradient(160deg, #B9E6F8 0%, #CDF3E3 52%, #DDE7FA 100%);
+    display:flex; gap:70px; justify-content:center; padding-top:50px; }
+  .col { display:flex; flex-direction:column; align-items:center; gap:30px; }
+  .title { font-size:46px; font-weight:800; color:#3A352F; }
+  .phone { width:860px; height:1866px; background:#111; border-radius:120px; padding:20px;
+    box-shadow:0 46px 96px rgba(45,80,105,0.30); position:relative; }
+  .screen { width:100%; height:100%; border-radius:102px; overflow:hidden; position:relative;
+    background:#F5F2EB; display:flex; flex-direction:column; }
+  .island { position:absolute; top:34px; left:50%; transform:translateX(-50%);
+    width:220px; height:62px; background:#000; border-radius:36px; z-index:9; }
+
+  /* ---- 벽 ---- */
+  .wall { flex:1; padding:130px 34px 20px; display:flex; flex-direction:column; gap:26px; overflow:hidden; }
+  .note { border-radius:14px; min-height:108px; display:flex; align-items:center;
+    padding:0 90px 0 34px; position:relative; box-shadow:0 3px 10px rgba(58,53,47,0.05); }
+  .note .txt { font-size:33px; font-weight:600; color:#3A352F; letter-spacing:-0.5px; }
+  .grip { position:absolute; right:28px; top:50%; transform:translateY(-50%);
+    color:rgba(58,53,47,0.28); font-size:30px; font-weight:800; letter-spacing:-2px; }
+  .stk { position:absolute; font-size:44px; filter:drop-shadow(0 3px 5px rgba(58,53,47,0.18)); }
+
+  /* ---- 팔레트/입력바 ---- */
+  .bottombar { border-top:1px solid rgba(58,53,47,0.08); padding:16px 0 40px; background:#F5F2EB; }
+  .hint { text-align:center; font-size:20px; color:rgba(58,53,47,0.45); margin-bottom:12px; }
+  .blobs { display:flex; justify-content:center; gap:30px; margin-bottom:20px; }
+  .blob { width:44px; height:44px; border-radius:50%; border:1.5px solid rgba(58,53,47,0.12); }
+  .inrow { display:flex; align-items:center; gap:16px; padding:0 26px; }
+  .field { flex:1; border:1.5px solid rgba(58,53,47,0.15); border-radius:40px; padding:18px 28px;
+    font-size:26px; color:rgba(58,53,47,0.35); }
+  .send { width:56px; height:56px; border-radius:50%; background:#0A84FF; color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:30px; }
+  .brush { width:56px; height:56px; border-radius:50%; background:rgba(58,53,47,0.06);
+    display:flex; align-items:center; justify-content:center; font-size:28px; }
+
+  /* ---- 꾸미기 시트 ---- */
+  .dim { position:absolute; inset:0; background:rgba(58,53,47,0.25); z-index:10; }
+  .sheet { position:absolute; left:0; right:0; bottom:0; z-index:11; background:#FBF9F4;
+    border-radius:52px 52px 0 0; padding:34px 38px 48px; box-shadow:0 -12px 40px rgba(58,53,47,0.14); }
+  .handle { width:76px; height:8px; border-radius:4px; background:rgba(58,53,47,0.15); margin:0 auto 26px; }
+  .sheet h3 { font-size:36px; font-weight:800; color:#3A352F; text-align:center; margin-bottom:24px; }
+  .tabs { display:flex; background:rgba(58,53,47,0.06); border-radius:22px; padding:6px; margin-bottom:30px; }
+  .tab { flex:1; text-align:center; font-size:26px; font-weight:700; padding:14px 0;
+    color:rgba(58,53,47,0.45); border-radius:17px; }
+  .tab.on { background:#fff; color:#3A352F; box-shadow:0 2px 8px rgba(58,53,47,0.10); }
+  .weekly { display:flex; align-items:center; gap:14px; background:rgba(140,255,184,0.25);
+    border:1.5px solid rgba(58,140,90,0.25); border-radius:20px; padding:14px 22px;
+    font-size:24px; font-weight:700; color:#2E6B47; margin-bottom:26px; width:fit-content; }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; margin-bottom:30px; }
+  .cell { background:#fff; border-radius:24px; aspect-ratio:1; display:flex; align-items:center;
+    justify-content:center; font-size:58px; position:relative; box-shadow:0 2px 8px rgba(58,53,47,0.06); }
+  .lock { position:absolute; right:10px; bottom:10px; font-size:24px; opacity:0.55; }
+  .cta { background:#3A352F; color:#fff; border-radius:26px; text-align:center;
+    font-size:29px; font-weight:800; padding:26px 0; margin-bottom:14px; }
+  .cta small { display:block; font-size:21px; font-weight:500; opacity:0.65; margin-top:6px; }
+  .coffee { text-align:center; font-size:24px; font-weight:600; color:rgba(58,53,47,0.55); }
+
+  /* 속지 스와치 */
+  .swrow { display:flex; gap:22px; margin-bottom:32px; }
+  .sw { flex:1; aspect-ratio:1; border-radius:24px; background:#F5DEA8; position:relative;
+    box-shadow:0 2px 8px rgba(58,53,47,0.08); }
+  .sw .nm { position:absolute; bottom:-34px; width:100%; text-align:center; font-size:21px;
+    font-weight:600; color:rgba(58,53,47,0.55); }
+  .sw.on { outline:4px solid #0A84FF; outline-offset:3px; }
+  .lines { background:repeating-linear-gradient(180deg, #F5DEA8 0 26px, rgba(58,53,47,0.10) 26px 28px); }
+  .gridp { background-image:repeating-linear-gradient(0deg, rgba(58,53,47,0.08) 0 2px, transparent 2px 24px),
+    repeating-linear-gradient(90deg, rgba(58,53,47,0.08) 0 2px, transparent 2px 24px); background-color:#F5DEA8; }
+  .dots { background-image:radial-gradient(rgba(58,53,47,0.16) 3px, transparent 3.5px);
+    background-size:26px 26px; background-color:#F5DEA8; }
+  .packrow { display:flex; align-items:center; gap:18px; background:#fff; border-radius:24px;
+    padding:20px 26px; margin-bottom:18px; box-shadow:0 2px 8px rgba(58,53,47,0.06); }
+  .packrow .nm { font-size:26px; font-weight:700; color:#3A352F; flex:0 0 150px; }
+  .chips { display:flex; gap:12px; flex:1; }
+  .chip { width:38px; height:38px; border-radius:50%; border:1px solid rgba(58,53,47,0.1); }
+  .sec { font-size:24px; font-weight:800; color:rgba(58,53,47,0.4); margin:6px 0 16px; letter-spacing:1px; }
+</style>
+</head>
+<body>
+<script>
+const P = ['#F5DEA8','#F4D2D4','#CCDFC7','#D2E0E4','#EDC79B','#E6DCEF'];
+const SEA = ['#BFE3F2','#A8DCD4','#CDE9E2','#B5CCE8','#D6EAF5','#C2E6EF'];
+const SUNSET = ['#F6C6A0','#F2B7C1','#E8B9DD','#F7DDB0','#EFC2AE','#E3C4EA'];
+
+function phoneWall(decorated){
+  const notes = decorated ? `
+    <div class="note gridp" style="transform:rotate(-1.2deg);">
+      <div class="txt">우유·계란 사기</div><div class="grip">☰</div>
+      <div class="stk" style="top:-18px; left:22px; transform:rotate(-14deg);">⭐</div>
+    </div>
+    <div class="note" style="background:${P[1]}; transform:rotate(1deg);">
+      <div class="txt">엄마한테 전화</div><div class="grip">☰</div>
+      <div class="stk" style="top:-16px; right:120px; transform:rotate(10deg);">💖</div>
+    </div>
+    <div class="note" style="background:${SEA[1]}; transform:rotate(-0.8deg);">
+      <div class="txt">금요일까지 보고서 초안</div><div class="grip">☰</div>
+      <div class="stk" style="bottom:-14px; left:200px; transform:rotate(-6deg);">🌊</div>
+    </div>
+    <div class="note lines" style="transform:rotate(0.9deg);">
+      <div class="txt">자기 전에 약 먹기</div><div class="grip">☰</div>
+      <div class="stk" style="top:-16px; left:150px; transform:rotate(8deg);">🍀</div>
+      <div class="stk" style="bottom:-12px; right:110px; transform:rotate(-12deg); font-size:36px;">✨</div>
+    </div>` : `
+    <div class="note" style="background:${P[0]}; transform:rotate(-1.2deg);"><div class="txt">우유·계란 사기</div><div class="grip">☰</div></div>
+    <div class="note" style="background:${P[1]}; transform:rotate(1deg);"><div class="txt">엄마한테 전화</div><div class="grip">☰</div></div>
+    <div class="note" style="background:${P[3]}; transform:rotate(-0.8deg);"><div class="txt">금요일까지 보고서 초안</div><div class="grip">☰</div></div>`;
+  return `<div class="wall">${notes}</div>
+  <div class="bottombar">
+    <div class="hint">색 탭 = 그 색만 보기 · 메모 끌어 색에 콕 = 색칠</div>
+    <div class="blobs">${P.map(c=>`<div class="blob" style="background:${c}"></div>`).join('')}</div>
+    <div class="inrow"><div class="brush">🎨</div><div class="field">머릿속 메모…</div><div class="send">↑</div></div>
+  </div>`;
+}
+
+const phone1 = `
+  ${phoneWall(false)}
+  <div class="dim"></div>
+  <div style="position:absolute; top:190px; left:430px; z-index:12; font-size:64px; transform:rotate(-10deg); filter:drop-shadow(0 8px 14px rgba(58,53,47,0.3));">🌊</div>
+  <div style="position:absolute; top:205px; left:445px; z-index:13; width:74px; height:74px; border-radius:50%; background:rgba(255,255,255,0.35); border:2px solid rgba(255,255,255,0.8);"></div>
+  <div class="sheet">
+    <div class="handle"></div>
+    <h3>꾸미기</h3>
+    <div class="tabs"><div class="tab on">스티커</div><div class="tab">속지 · 팔레트</div></div>
+    <div class="weekly">🌊 이번 주 신상 — 파도 스티커</div>
+    <div style="font-size:22px; color:rgba(58,53,47,0.5); margin:-8px 0 22px; text-align:center;">스티커를 끌어서 메모에 콕 붙여보세요</div>
+    <div class="grid">
+      <div class="cell">⭐</div><div class="cell">💖</div><div class="cell">🍀</div><div class="cell">✨</div>
+      <div class="cell">🌊<div class="lock">🔒</div></div><div class="cell">☕<div class="lock">🔒</div></div>
+      <div class="cell">🐣<div class="lock">🔒</div></div><div class="cell">🌈<div class="lock">🔒</div></div>
+      <div class="cell">🍑<div class="lock">🔒</div></div><div class="cell">✈️<div class="lock">🔒</div></div>
+      <div class="cell">🎀<div class="lock">🔒</div></div><div class="cell">📌<div class="lock">🔒</div></div>
+    </div>
+    <div class="cta">구깃 플러스로 전부 열기<small>₩3,300 · 한 번만 결제하면 매주 새 스티커까지 전부</small></div>
+    <div class="coffee">☕ 개발자에게 커피 한 잔 사주기</div>
+  </div>`;
+
+const phone3 = `
+  ${phoneWall(false)}
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="handle"></div>
+    <h3>꾸미기</h3>
+    <div class="tabs"><div class="tab">스티커</div><div class="tab on">속지 · 팔레트</div></div>
+    <div class="sec">속지 — 포스트잇 무늬</div>
+    <div class="swrow">
+      <div class="sw on"><div class="nm">민무늬</div></div>
+      <div class="sw lines"><div class="nm">줄노트</div></div>
+      <div class="sw gridp"><div class="nm">모눈 🔒</div></div>
+      <div class="sw dots"><div class="nm">도트 🔒</div></div>
+    </div>
+    <div class="sec" style="margin-top:44px;">컬러 팩</div>
+    <div class="packrow"><div class="nm">기본 6색</div><div class="chips">${P.map(c=>`<div class="chip" style="background:${c}"></div>`).join('')}</div><div style="font-size:24px; color:#2E6B47; font-weight:700;">사용중</div></div>
+    <div class="packrow"><div class="nm">바다 팩</div><div class="chips">${SEA.map(c=>`<div class="chip" style="background:${c}"></div>`).join('')}</div><div style="font-size:26px;">🔒</div></div>
+    <div class="packrow"><div class="nm">노을 팩</div><div class="chips">${SUNSET.map(c=>`<div class="chip" style="background:${c}"></div>`).join('')}</div><div style="font-size:26px;">🔒</div></div>
+    <div class="cta" style="margin-top:24px;">구깃 플러스로 전부 열기<small>₩3,300 · 한 번만</small></div>
+  </div>`;
+
+document.body.innerHTML = `
+  <div class="col"><div class="title">① 꾸미기 시트 — 스티커 탭</div>
+    <div class="phone"><div class="screen">${phone1}</div><div class="island"></div></div></div>
+  <div class="col"><div class="title">② 스티커·속지 적용된 벽</div>
+    <div class="phone"><div class="screen">${phoneWall(true)}</div><div class="island"></div></div></div>
+  <div class="col"><div class="title">③ 속지 · 팔레트 탭 (통합)</div>
+    <div class="phone"><div class="screen">${phone3}</div><div class="island"></div></div></div>`;
+</script>
+</body>
+</html>

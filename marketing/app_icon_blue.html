@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1024px; height:1024px; overflow:hidden; }
+  body {
+    background: linear-gradient(160deg, #B9E6F8 0%, #CDF3E3 52%, #DDE7FA 100%);
+    position:relative;
+  }
+  .card {
+    position:absolute; left:148px; right:148px; top:336px; height:370px;
+    background:#FFFDF7; border-radius:74px; transform:rotate(-7deg);
+    box-shadow:0 28px 74px rgba(45,75,95,0.20);
+  }
+  .l1 { position:absolute; left:86px; top:108px; width:426px; height:37px; border-radius:20px; background:rgba(58,53,47,0.16); }
+  .l2 { position:absolute; left:86px; top:199px; width:284px; height:37px; border-radius:20px; background:rgba(58,53,47,0.11); }
+  .spark { position:absolute; color:#fff; text-shadow:0 0 56px rgba(255,255,255,0.95), 0 0 130px rgba(255,255,255,0.75); }
+  .gspark { position:absolute; color:#8CFFB8; text-shadow:0 0 60px rgba(140,255,184,0.95), 0 0 140px rgba(140,255,184,0.75); }
+</style>
+</head>
+<body>
+  <div class="spark"  style="top:72px;  left:104px; font-size:112px;">✦</div>
+  <div class="gspark" style="top:168px; right:124px; font-size:84px;">✦</div>
+  <div class="spark"  style="bottom:118px; right:168px; font-size:96px;">✧</div>
+  <div class="gspark" style="bottom:96px; left:150px; font-size:64px;">✧</div>
+  <div class="card"><div class="l1"></div><div class="l2"></div></div>
+</body>
+</html>
